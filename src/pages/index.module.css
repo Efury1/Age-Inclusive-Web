@@ -32,7 +32,10 @@
   color: var(--ifm-color-emphasis-600);
   font-style: italic;
   margin: 0;
+  border-radius: 0;
 }
+
+/* ── Main layout ── */
 
 .main {
   max-width: 760px;
@@ -40,7 +43,8 @@
   padding: 1.5rem;
 }
 
-/* Progress card */
+/* ── Progress card ── */
+
 .progressCard {
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-toc-border-color);
@@ -49,7 +53,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .progressLabel {
@@ -78,7 +82,23 @@
   white-space: nowrap;
 }
 
-/* Guideline cards */
+/* ── Legend ── */
+
+.legend {
+  margin-bottom: 1.25rem;
+  padding: 0 0.25rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* ── Guideline cards ── */
+
 .guidelineCard {
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-toc-border-color);
@@ -106,7 +126,7 @@
   border: 1px solid var(--ifm-color-emphasis-400);
   border-radius: 4px;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -143,6 +163,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.5;
+  margin-bottom: 4px;
 }
 
 .guidelineExpand {
@@ -151,14 +172,71 @@
   font-weight: 300;
   flex-shrink: 0;
   line-height: 1;
+  margin-top: 2px;
+}
+
+/* ── WCAG overlap pill (shown on card header) ── */
+
+.wcagPill {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.wcagPillSmall {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 4px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+/* ── WCAG overlap banner (shown inside expanded body) ── */
+
+.wcagBadge {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #78350f;
+}
+
+.wcagBadgeIcon {
+  flex-shrink: 0;
+  font-size: 0.9rem;
   margin-top: 1px;
 }
 
+/* ── Guideline body ── */
+
 .guidelineBody {
+  padding: 1rem 1.25rem 1.25rem 3.25rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.guidelinePara {
   font-size: 0.85rem;
   line-height: 1.75;
   color: var(--ifm-color-emphasis-700);
-  padding: 1rem 1.25rem 1.25rem 3.25rem;
-  border-top: 1px solid var(--ifm-toc-border-color);
-  margin: 0;
+  margin: 0 0 0.75rem 0;
+}
+
+.guidelinePara:last-child {
+  margin-bottom: 0;
 }

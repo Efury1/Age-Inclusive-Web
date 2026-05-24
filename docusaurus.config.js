@@ -14,8 +14,8 @@ const config = {
   url: 'https://your-docusaurus-site.example.com',
   baseUrl: '/',
 
-  organizationName: 'your-github-username',
-  projectName: 'your-repo',
+  organizationName: 'https://github.com/Efury1/Age-Inclusive-Web',
+  projectName: 'Age Inclusive Web',
 
   onBrokenLinks: 'throw',
 
@@ -53,15 +53,11 @@ const config = {
       },
 
       navbar: {
-        title: 'AIW',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
+        title: 'Age Inclusive Web',
         items: [
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/your-github-username/your-repo',
+            href: 'https://github.com/Efury1/Age-Inclusive-Web',
             label: 'GitHub',
             position: 'right',
           },
