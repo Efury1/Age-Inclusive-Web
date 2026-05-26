@@ -11,11 +11,10 @@ const config = {
     v4: true,
   },
 
-  url: 'https://Efury1.github.io',
-  baseUrl: '/Age-Inclusive-Web/',
+  url: 'https://ageinclusiveweb.netlify.app/',
+  baseUrl: '/',
   organizationName: 'Efury1',
   projectName: 'Age-Inclusive-Web',
-  deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
