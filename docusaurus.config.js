@@ -11,11 +11,12 @@ const config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
-
-  organizationName: 'https://github.com/Efury1/Age-Inclusive-Web',
-  projectName: 'Age Inclusive Web',
+  url: 'https://Efury1.github.io',
+  baseUrl: '/Age-Inclusive-Web/',
+  organizationName: 'Efury1',
+  projectName: 'Age-Inclusive-Web',
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
