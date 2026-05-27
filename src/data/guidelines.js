@@ -43,8 +43,7 @@ References:
 Provide persistent "Need help" links in forms and checkout flows. Include clear escalation paths from chatbots to human support. Where AI chat is used as a first point of contact, the route to a human agent must be clearly labelled and require no more than one step.
 
 References:
-- AbilityNet — Digital accessibility for older people: https://abilitynet.org.uk/factsheets/digital-accessibility-older-people
-- Age UK — Digital Inclusion Evidence Review (2021): https://www.ageuk.org.uk/globalassets/age-uk/documents/reports-and-publications/reports-and-briefings/active-communities/rb_jan21_digital_inclusion_evidence_review.pdf`,
+- Age UK — Digital Inclusion Evidence Review (2016): `,
   },
   {
     id: 'g5',
@@ -55,7 +54,7 @@ References:
 Keep previously entered information visible where possible, use progress indicators, and avoid requiring users to remember codes or instructions across screens. Do not clear form fields after an error.
 
 References:
-- Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press.
+- Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press: https://www.taylorfrancis.com/books/mono/10.1201/9781420080681/designing-older-adults-arthur-fisk-wendy-rogers-neil-charness-joseph-sharit-sara-czaja-sara-czaja
 - W3C — Cognitive Accessibility Guidance (COGA): https://www.w3.org/TR/coga-usable/`,
   },
   {
@@ -70,7 +69,7 @@ Error messages should explain what happened in plain language, confirm that no d
 Example: Instead of "Submission failed", use "We couldn't send your form — your information has been saved. Please check your internet connection and try again."
 
 References:
-- Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press.
+- Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press: https://www.taylorfrancis.com/books/mono/10.1201/9781420080681/designing-older-adults-arthur-fisk-wendy-rogers-neil-charness-joseph-sharit-sara-czaja-sara-czaja
 - Nielsen Norman Group — Writing Helpful Error Messages: https://www.nngroup.com/articles/error-message-guidelines/`,
   },
   {
@@ -83,8 +82,7 @@ Maintain consistent branding across all touchpoints (web, email, SMS). Avoid req
 
 References:
 - Age UK — Fraud and Scams report (2022): https://www.ageuk.org.uk/information-advice/money-legal/scams-fraud/
-- UK Finance — Fraud the Facts (2023): https://www.ukfinance.org.uk/policy-and-guidance/reports-and-publications/fraud-facts-2023
-- Vishwanath, A. (2015). Examining the distinct antecedents of e-mail habits and its influence on the outcomes of a phishing attack. Journal of Computer-Mediated Communication, 20(5).`,
+- Vishwanath, A. (2015). Examining the distinct antecedents of e-mail habits and its influence on the outcomes of a phishing attack. Journal of Computer-Mediated Communication, 20(5). https://academic.oup.com/jcmc/article/20/1/83/4067561`,
   },
   {
     id: 'g8',
@@ -97,7 +95,6 @@ Use short sentences and active voice in all transactional content. Spell out acr
 
 References:
 - GOV.UK Content Design guidance: https://www.gov.uk/guidance/content-design/writing-for-gov-uk
-- Good Things Foundation — Digital Nation report (2023): https://www.goodthingsfoundation.org/insights/digital-nation-2023/
 - Ofcom — Adults' Media Use and Attitudes report (2023): https://www.ofcom.org.uk/research-and-data/media-literacy-research/adults/adults-media-use-and-attitudes`,
   },
   {
@@ -111,8 +108,7 @@ Interactive elements should be at least 44×44 CSS pixels. Spacing between adjac
 
 References:
 - Apple Human Interface Guidelines — Layout: https://developer.apple.com/design/human-interface-guidelines/layout
-- Google Material Design — Accessibility: https://m3.material.io/foundations/accessible-design/accessibility-basics
-- Coyne, K. P., & Nielsen, J. (2002). Web Usability for Senior Citizens. Nielsen Norman Group.`,
+- Coyne, K. P., & Nielsen, J. (2002). Web Usability for Senior Citizens. Nielsen Norman Group. : https://www.nngroup.com/articles/usability-for-senior-citizens/`,
   },
   {
     id: 'g10',
@@ -125,7 +121,7 @@ Carousels and slideshows must not advance automatically, or must provide a clear
 
 References:
 - Nielsen Norman Group — Auto-Forwarding Carousels: https://www.nngroup.com/articles/auto-forwarding/
-- Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology. Universal Access in the Information Society, 5(4).
+- Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology. Universal Access in the Information Society, 5(4): https://www.researchgate.net/publication/220606716_The_impact_of_aging_on_access_to_technology.
 - W3C — Cognitive Accessibility Guidance (COGA): https://www.w3.org/TR/coga-usable/`,
   },
   {
@@ -138,8 +134,7 @@ Provide inline hint text, tooltips, or expandable guidance at decision points wi
 
 References:
 - Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).
-- Nielsen Norman Group — Embedded Help vs. External Help: https://www.nngroup.com/articles/embedded-help/
-- AbilityNet — Digital accessibility for older people: https://abilitynet.org.uk/factsheets/digital-accessibility-older-people`,
+- Nielsen Norman Group — Embedded Help vs. External Help: https://www.nngroup.com/articles/embedded-help/`,
   },
   {
     id: 'g12',
@@ -163,17 +158,19 @@ References:
 Confirmation numbers, appointment details, and transaction records should be printable or downloadable as a PDF without requiring an account or further navigation. For critical services, a telephone or in-person alternative must exist and be clearly signposted alongside the digital journey.
 
 References:
-- Lloyds Bank — UK Consumer Digital Index (2023): https://www.lloydsbankinggroup.com/insights/consumer-digital-index.html
-- Good Things Foundation — Barriers to Digital Inclusion (2022): https://www.goodthingsfoundation.org
-- ONS — Internet users, UK (2023): https://www.ons.gov.uk/businessindustryandtrade/itandinternetindustry/bulletins/internetusers/2023`,
+- TODO`,
   },
   {
     id: 'g14',
     code: 'AIWS-14 · PDF delivery',
     title: 'Do not use PDF as the primary format for transactional or time-sensitive information',
-    body: `PDFs are one of the most common accessibility barriers for older adults online. Many PDFs produced by public services are untagged scanned images, meaning assistive technologies cannot read them, text cannot be resized, and content cannot reflow on smaller screens.
+    body: `PDFs are one of the most common accessibility barriers for older adults online. Many PDFs produced by public services are untagged scanned images meaning text cannot be resized, and content cannot reflow on smaller screens.
+    Where a PDF must be provided, it must also:
 
-Where a PDF must be provided, it must: be a tagged PDF (not a scanned image), use a minimum body font size of 14pt, use left-aligned text rather than justified, and support reflow and zoom without horizontal scrolling. An HTML equivalent of the same content must always be offered alongside any PDF download. PDFs must never be the only way to access a form, confirmation, or service.
+    Use a minimum body font size of 14pt
+    Use left-aligned text rather than justified
+
+    An HTML equivalent must always be offered alongside any PDF download. PDFs must never be the only way to access a form, confirmation, or service.
 
 References:
 - W3C — PDF Techniques for WCAG 2.0: https://www.w3.org/TR/WCAG20-TECHS/pdf
@@ -192,8 +189,7 @@ The following patterns must not be used in services targeting or likely to be us
 References:
 - Nielsen Norman Group — Deceptive Patterns: https://www.nngroup.com/articles/deceptive-patterns/
 - UK Competition and Markets Authority — Online Choice Architecture (2022): https://www.gov.uk/government/publications/online-choice-architecture-how-digital-design-can-harm-competition-and-consumers
-- Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns. Journal of Legal Analysis, 13(1).
-- FTC — Report on Dark Patterns (2022): https://www.ftc.gov/reports/dark-patterns`,
+- Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns. Journal of Legal Analysis, 13(1).`,
   },
   {
     id: 'g16',
@@ -205,7 +201,6 @@ Consent interfaces must: present accept and reject options with equal visual wei
 
 References:
 - "Okay, whatever": An Evaluation of Cookie Consent Interfaces — ACM CHI 2022: https://dl.acm.org/doi/10.1145/3491102.3501985
-- European Data Protection Board — Guidelines on Dark Patterns in Social Media (2022): https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-032022-dark-patterns-social-media-platform_en
 - ICO — Guidance on Privacy in the Design of Online Services: https://ico.org.uk/for-organisations/guide-to-data-protection/`,
   },
   {
@@ -232,8 +227,7 @@ Avoid using blue as the primary text colour on dark backgrounds. Do not rely on 
 
 References:
 - Vispero — Preventing Ageism in Design: Digital Accessibility for Older Adults: https://vispero.com/resources/preventing-ageism-in-design-digital-accessibility-for-older-adults/
-- Hou, G., et al. (2022). How to design font size for older adults. Frontiers in Psychology: https://doi.org/10.3389/fpsyg.2022.931646
-- Is modern web design ageist? Medium / Design Bootcamp (2024): https://medium.com/design-bootcamp/is-modern-web-design-ageist-550e8346812f`,
+- Hou, G., et al. (2022). How to design font size for older adults. Frontiers in Psychology: https://doi.org/10.3389/fpsyg.2022.931646`,
   },
   {
     id: 'g19',
@@ -245,7 +239,7 @@ Services used by linguistically diverse older adult populations should: offer ke
 
 References:
 - Improving WCAG for Elderly Web Accessibility — ResearchGate (2024): https://www.researchgate.net/publication/216742704_Improving_WCAG_for_elderly_Web_accessibility
-- Good Things Foundation — Digital Nation report (2023): https://www.goodthingsfoundation.org/insights/digital-nation-2023/
-- ONS — Population of England and Wales by ethnic group (2021 Census): https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/ethnicity`,
+- ONS — Population of England and Wales by ethnic group (2021 Census): https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/ethnicity
+`,
   },
 ];
