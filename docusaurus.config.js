@@ -57,6 +57,9 @@ const config = {
         items: [
           { to: '/blog', label: 'Blog', position: 'left' },
           { to: '/about', label: 'About', position: 'left' },
+          { to: '/resources', label: 'Resources', position: 'left' },
+          { to: '/contribute', label: 'Contribute', position: 'left' },
+          { to: '/pilot', label: 'Pilot', position: 'left' },
           {
             href: 'https://github.com/Efury1/Age-Inclusive-Web',
             label: 'GitHub',

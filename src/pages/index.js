@@ -13,14 +13,35 @@ function WcagBadge({ text }) {
   );
 }
 
+function linkify(text) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  return text.split(urlRegex).map((part, i) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a key={i} href={part} target="_blank" rel="noreferrer">
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 function GuidelineCard({ guideline, checked, onToggleCheck }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={`${styles.guidelineCard} ${checked ? styles.guidelineCardChecked : ''}`}>
+    <div
+      className={`${styles.guidelineCard} ${
+        checked ? styles.guidelineCardChecked : ''
+      }`}
+    >
       <div className={styles.guidelineHeader} onClick={() => setOpen(!open)}>
         <div
-          className={`${styles.guidelineCheckbox} ${checked ? styles.guidelineCheckboxChecked : ''}`}
+          className={`${styles.guidelineCheckbox} ${
+            checked ? styles.guidelineCheckboxChecked : ''
+          }`}
           onClick={(event) => {
             event.stopPropagation();
             onToggleCheck();
@@ -36,14 +57,19 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
             }
           }}
         />
+
         <div className={styles.guidelineTitleGroup}>
           <span className={styles.guidelineId}>{guideline.code}</span>
           <div className={styles.guidelineTitle}>{guideline.title}</div>
+
           {guideline.wcagOverlap && (
             <span className={styles.wcagPill}>⚠ WCAG overlap</span>
           )}
         </div>
-        <span className={styles.guidelineExpand}>{open ? '−' : '+'}</span>
+
+        <span className={styles.guidelineExpand}>
+          {open ? '−' : '+'}
+        </span>
       </div>
 
       {open && (
@@ -51,8 +77,11 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
           {guideline.wcagOverlap && (
             <WcagBadge text={guideline.wcagOverlap} />
           )}
+
           {guideline.body.split('\n\n').map((para, i) => (
-            <p key={i} className={styles.guidelinePara}>{para}</p>
+            <p key={i} className={styles.guidelinePara}>
+              {linkify(para)}
+            </p>
           ))}
         </div>
       )}
@@ -75,6 +104,12 @@ export default function Home() {
   const total = GUIDELINES.length;
   const pct = (completedCount / total) * 100;
 
+  const grouped = GUIDELINES.reduce((acc, g) => {
+    acc[g.category] = acc[g.category] || [];
+    acc[g.category].push(g);
+    return acc;
+  }, {});
+
   return (
     <Layout
       title="Age-Inclusive Web Standard"
@@ -82,11 +117,16 @@ export default function Home() {
     >
       <section className={styles.hero}>
         <div className={styles.heroContainer}>
-          <h1 className={styles.heroTitle}>Age-Inclusive Web Standard</h1>
+          <h1 className={styles.heroTitle}>
+            Age-Inclusive Web Standard
+          </h1>
+
           <p className={styles.heroSubtitle}>
-               A practical framework for designing inclusive digital services that meet the needs of older adults,
-            placing particular emphasis on older women as a priority audience. It addresses common barriers such
-            as lower digital confidence, caring responsibilities, and the need to navigate multiple devices.
+            A practical framework for designing inclusive digital services
+            that meet the needs of older adults, placing particular emphasis
+            on older women as a priority audience. It addresses common
+            barriers such as lower digital confidence, caring
+            responsibilities, and the need to navigate multiple devices.
             The framework is supported by actionable checklists.
           </p>
         </div>
@@ -94,22 +134,37 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.progressCard}>
-          <div className={styles.progressLabel}>Guidelines complete</div>
-          <div className={styles.progressBarBg}>
-            <div className={styles.progressBarFill} style={{ width: `${pct}%` }} />
+          <div className={styles.progressLabel}>
+            Guidelines complete
           </div>
+
+          <div className={styles.progressBarBg}>
+            <div
+              className={styles.progressBarFill}
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+
           <div className={styles.progressCount}>
             {completedCount} / {total}
           </div>
         </div>
 
-        {GUIDELINES.map((g) => (
-          <GuidelineCard
-            key={g.id}
-            guideline={g}
-            checked={checked.has(g.id)}
-            onToggleCheck={() => toggleCheck(g.id)}
-          />
+        {Object.entries(grouped).map(([category, items]) => (
+          <section key={category} className={styles.categorySection}>
+            <h2 className={styles.categoryHeader}>
+              {category}
+            </h2>
+
+            {items.map((g) => (
+              <GuidelineCard
+                key={g.id}
+                guideline={g}
+                checked={checked.has(g.id)}
+                onToggleCheck={() => toggleCheck(g.id)}
+              />
+            ))}
+          </section>
         ))}
       </main>
     </Layout>

@@ -1,6 +1,7 @@
 export const GUIDELINES = [
   {
     id: 'g1',
+    category: 'Navigation and interaction',
     code: 'AIWS-01 · Navigation visibility',
     title: 'Avoid hiding actions inside abstract icons or hamburger menus',
     body: `Many older users prefer visible navigation and recognition over exploration-based interfaces. Hidden navigation increases cognitive load and reduces confidence.
@@ -12,6 +13,7 @@ References:
   },
   {
     id: 'g2',
+    category: 'Cognitive load and usability',
     code: 'AIWS-02 · Time & pacing',
     title: 'Avoid time pressure and allow users to work at their own pace',
     body: `Older adults may take longer to read, verify, and build confidence before submitting information. Systems should avoid forced time limits wherever possible.
@@ -24,6 +26,7 @@ References:
   },
   {
     id: 'g3',
+    category: 'Navigation and interaction',
     code: 'AIWS-03 · Device flexibility',
     title: 'Do not make mobile app use mandatory',
     body: `Not all users are comfortable with or have access to smartphones. Many older users prefer tablets or desktop devices.
@@ -36,6 +39,7 @@ References:
   },
   {
     id: 'g4',
+    category: 'Support and assistance',
     code: 'AIWS-04 · Support visibility',
     title: 'Keep support options visible throughout high-risk flows',
     body: `Older users are more likely to seek reassurance or human assistance during complex tasks. If help is not visible, they are more likely to abandon the process.
@@ -43,10 +47,11 @@ References:
 Provide persistent "Need help" links in forms and checkout flows. Include clear escalation paths from chatbots to human support. Where AI chat is used as a first point of contact, the route to a human agent must be clearly labelled and require no more than one step.
 
 References:
-- Age UK — Digital Inclusion Evidence Review (2016): `,
+- Age UK — Digital Inclusion Evidence Review (2016):`,
   },
   {
     id: 'g5',
+    category: 'Cognitive load and usability',
     code: 'AIWS-05 · Memory load',
     title: 'Avoid requiring memorisation across steps or screens',
     body: `Interfaces that rely on short-term recall increase errors and frustration. This is particularly pronounced in older adults, where working memory capacity is more likely to be reduced.
@@ -59,6 +64,7 @@ References:
   },
   {
     id: 'g6',
+    category: 'Confidence, trust and anxiety',
     code: 'AIWS-06 · Error reassurance',
     title: 'Write error messages that reassure rather than alarm',
     wcagOverlap: 'Partial WCAG overlap: WCAG 3.3.1 (Error Identification) and 3.3.3 (Error Suggestion) require errors to be identified and described, but do not address tone, reassurance, or the emotional impact of error language.',
@@ -74,6 +80,7 @@ References:
   },
   {
     id: 'g7',
+    category: 'Confidence, trust and anxiety',
     code: 'AIWS-07 · Trust signals',
     title: 'Avoid interface patterns that resemble phishing or feel illegitimate',
     body: `Older adults are disproportionately targeted by online scams and have often been advised to be suspicious of unexpected digital interactions. Interface patterns common in legitimate services — unexpected redirects, mid-flow credential requests, unfamiliar modal dialogs — can trigger justified distrust and cause users to abandon safe services.
@@ -86,6 +93,7 @@ References:
   },
   {
     id: 'g8',
+    category: 'Content and communication',
     code: 'AIWS-08 · Plain language',
     title: 'Write transactional content at a reading level accessible to all adults',
     wcagOverlap: 'Partial WCAG overlap: WCAG 3.1.5 (Reading Level) recommends supplemental content for text requiring more than lower secondary education level, but this is Level AAA and is very rarely implemented. WCAG does not address assumed digital literacy in instructional language.',
@@ -99,6 +107,7 @@ References:
   },
   {
     id: 'g9',
+    category: 'Navigation and interaction',
     code: 'AIWS-09 · Touch target sizing',
     title: 'Use touch targets of at least 44×44px with sufficient spacing between them',
     wcagOverlap: 'Partial WCAG overlap: WCAG 2.5.8 (Minimum Target Size, Level AA in WCAG 2.2) sets a minimum of 24×24px. The 44×44px recommendation here follows Apple Human Interface Guidelines and Google Material Design, and is supported by usability research with older adults as a more appropriate threshold.',
@@ -108,10 +117,11 @@ Interactive elements should be at least 44×44 CSS pixels. Spacing between adjac
 
 References:
 - Apple Human Interface Guidelines — Layout: https://developer.apple.com/design/human-interface-guidelines/layout
-- Coyne, K. P., & Nielsen, J. (2002). Web Usability for Senior Citizens. Nielsen Norman Group. : https://www.nngroup.com/articles/usability-for-senior-citizens/`,
+- Coyne, K. P., & Nielsen, J. (2002). Web Usability for Senior Citizens. Nielsen Norman Group.`,
   },
   {
     id: 'g10',
+    category: 'Cognitive load and usability',
     code: 'AIWS-10 · Interruption management',
     title: 'Do not move, animate, or interrupt content without user initiation',
     wcagOverlap: 'Partial WCAG overlap: WCAG 2.2.2 (Pause, Stop, Hide) requires controls for moving content lasting more than 5 seconds, but does not address notification duration, form interruptions, or simultaneous cognitive demands.',
@@ -121,11 +131,11 @@ Carousels and slideshows must not advance automatically, or must provide a clear
 
 References:
 - Nielsen Norman Group — Auto-Forwarding Carousels: https://www.nngroup.com/articles/auto-forwarding/
-- Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology. Universal Access in the Information Society, 5(4): https://www.researchgate.net/publication/220606716_The_impact_of_aging_on_access_to_technology.
-- W3C — Cognitive Accessibility Guidance (COGA): https://www.w3.org/TR/coga-usable/`,
+- Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology.`,
   },
   {
     id: 'g11',
+    category: 'Support and assistance',
     code: 'AIWS-11 · Contextual help',
     title: 'Provide help at the point of need, not only in a separate FAQ',
     body: `Older adults are less likely to seek help proactively and more likely to abandon a task if they encounter confusion without immediate guidance. A help section that requires navigation away from the current task is not sufficient for users with lower digital confidence or working memory challenges.
@@ -138,6 +148,7 @@ References:
   },
   {
     id: 'g12',
+    category: 'Privacy and safety',
     code: 'AIWS-12 · Shared device privacy',
     title: 'Design session and account management for shared device use',
     body: `Many older adults, particularly those in care settings or living with family, share devices with others. Default session behaviour — staying logged in, storing autofill data, showing recent activity — can expose sensitive personal or financial information to other household members.
@@ -151,6 +162,7 @@ References:
   },
   {
     id: 'g13',
+    category: 'Formats and deliverables',
     code: 'AIWS-13 · Offline & print fallback',
     title: 'Ensure critical information is available outside the digital interface',
     body: `Digital-only service delivery excludes older adults who lack reliable internet access, lack confidence to complete tasks online, or who need a physical record for reassurance or reference. This is particularly acute for health, financial, and government services.
@@ -162,15 +174,16 @@ References:
   },
   {
     id: 'g14',
+    category: 'Formats and deliverables',
     code: 'AIWS-14 · PDF delivery',
     title: 'Do not use PDF as the primary format for transactional or time-sensitive information',
     body: `PDFs are one of the most common accessibility barriers for older adults online. Many PDFs produced by public services are untagged scanned images meaning text cannot be resized, and content cannot reflow on smaller screens.
-    Where a PDF must be provided, it must also:
 
-    Use a minimum body font size of 14pt
-    Use left-aligned text rather than justified
+Where a PDF must be provided, it must also:
+Use a minimum body font size of 14pt
+Use left-aligned text rather than justified
 
-    An HTML equivalent must always be offered alongside any PDF download. PDFs must never be the only way to access a form, confirmation, or service.
+An HTML equivalent must always be offered alongside any PDF download. PDFs must never be the only way to access a form, confirmation, or service.
 
 References:
 - W3C — PDF Techniques for WCAG 2.0: https://www.w3.org/TR/WCAG20-TECHS/pdf
@@ -180,24 +193,26 @@ References:
   },
   {
     id: 'g15',
+    category: 'Responsible design',
     code: 'AIWS-15 · Dark patterns',
     title: 'Do not use manipulative interface patterns that exploit lower digital literacy',
     body: `Dark patterns are interface designs that deliberately mislead or pressure users into actions they would not otherwise choose. Older adults with lower digital confidence are disproportionately harmed — they are less likely to recognise manipulative designs and more likely to comply out of uncertainty or anxiety.
 
-The following patterns must not be used in services targeting or likely to be used by older adults: pre-ticked boxes for subscriptions, add-ons, or data sharing; auto-renewing trials without explicit advance notice; cancellation flows that require significantly more steps than sign-up; confirm-shaming (e.g. "No thanks, I don't want to save money"); false urgency such as countdown timers on non-expiring offers; and hidden fees revealed only at the final checkout step.
+The following patterns must not be used: pre-ticked boxes, hidden fees, confirm-shaming, false urgency, or asymmetric cancellation flows.
 
 References:
 - Nielsen Norman Group — Deceptive Patterns: https://www.nngroup.com/articles/deceptive-patterns/
 - UK Competition and Markets Authority — Online Choice Architecture (2022): https://www.gov.uk/government/publications/online-choice-architecture-how-digital-design-can-harm-competition-and-consumers
-- Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns. Journal of Legal Analysis, 13(1).`,
+- Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns.`,
   },
   {
     id: 'g16',
+    category: 'Privacy and safety',
     code: 'AIWS-16 · Consent design',
     title: 'Make consent interfaces clear, equal, and free from manipulative design',
-    body: `Cookie consent and data-sharing interfaces are consistently designed to make acceptance easier than refusal. For older adults with lower digital literacy, confusing language, unequal button prominence, and pre-ticked boxes mean meaningful consent is rarely given. Research has found that 88% of cookie consent interfaces exhibited dark pattern heuristics.
+    body: `Cookie consent and data-sharing interfaces are consistently designed to make acceptance easier than refusal. For older adults with lower digital literacy, confusing language and unequal button prominence reduce meaningful consent.
 
-Consent interfaces must: present accept and reject options with equal visual weight; not use pre-ticked checkboxes for non-essential data collection; use plain language free from jargon, double negatives, or emotionally manipulative framing; and allow users to withdraw consent as easily as they gave it. Cookie walls that deny access unless consent is given are not permitted.
+Consent interfaces must present equal options, avoid pre-ticked boxes, and allow easy withdrawal.
 
 References:
 - "Okay, whatever": An Evaluation of Cookie Consent Interfaces — ACM CHI 2022: https://dl.acm.org/doi/10.1145/3491102.3501985
@@ -205,41 +220,41 @@ References:
   },
   {
     id: 'g17',
+    category: 'Confidence, trust and anxiety',
     code: 'AIWS-17 · Technology anxiety',
     title: 'Use language and visual design that does not imply the user has made a serious mistake',
-    body: `Research consistently identifies low self-efficacy and technology anxiety as primary barriers to digital inclusion for older adults. Interface language and visual design that implies severity, fault, or danger — even unintentionally — triggers anxiety and increases abandonment, particularly among users with lower digital confidence.
+    body: `Technology anxiety and low self-efficacy are major barriers to digital inclusion for older adults. Interfaces that imply fault, danger, or failure increase abandonment.
 
-Avoid the words "invalid", "illegal", "forbidden", "denied", and "failed" in user-facing messages. Do not use red for neutral informational states such as required field indicators. Avoid exclamation marks in warning states unless the situation is genuinely urgent. Where a user's action has been blocked or failed, always explain why in plain language and offer a clear next step. Never imply the user has caused damage or compromised security unless they genuinely have.
+Avoid overly alarming language, excessive red indicators, and unnecessary urgency.
 
 References:
-- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).
-- Accessible Web Design for Older Adults: Challenges and Solutions (2025): https://digibug.ugr.es/bitstream/handle/10481/106560/TACCESS-2025-05-25-preprint.pdf
-- Digital Exclusion in Older Adults: A Scoping Review. ScienceDirect (2024): https://www.sciencedirect.com/science/article/abs/pii/S0020748925000914`,
+- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`,
   },
   {
     id: 'g18',
+    category: 'Cognitive load and usability',
     code: 'AIWS-18 · Colour and ageing vision',
     title: 'Go beyond WCAG contrast ratios to account for age-related vision changes',
-    wcagOverlap: 'Partial WCAG overlap: WCAG 1.4.3 (Contrast, Level AA) and 1.4.6 (Enhanced Contrast, Level AAA) set minimum contrast ratios, but do not address colour combinations that remain difficult for older eyes even when ratios are technically met, or the specific effect of lens yellowing on blue-tone perception.',
-    body: `WCAG contrast ratios provide a baseline but do not fully address the realities of ageing vision. The lens of the eye yellows with age, reducing sensitivity to blue and violet tones — meaning blue-on-black and blue-on-dark-grey combinations that pass WCAG 1.4.3 can still be very difficult to read. Red-green combinations remain problematic regardless of contrast ratio due to the prevalence of red-green colour deficiency in older populations.
+    wcagOverlap: 'Partial WCAG overlap: WCAG contrast rules do not fully account for ageing vision and lens yellowing effects.',
+    body: `Age-related vision changes reduce sensitivity to blue tones and increase difficulty distinguishing certain colour combinations even when contrast ratios pass WCAG.
 
-Avoid using blue as the primary text colour on dark backgrounds. Do not rely on colour alone to convey meaning (already required by WCAG 1.4.1, but frequently violated in practice). Test designs with users aged 60 and over, not only with contrast-checking tools. Prefer high-contrast black-on-white or dark-on-light combinations for body text. Minimum recommended body font size for web is 16px; for PDFs and printed materials, 14pt.
+Prefer high-contrast black/white combinations and avoid relying on colour alone.
 
 References:
-- Vispero — Preventing Ageism in Design: Digital Accessibility for Older Adults: https://vispero.com/resources/preventing-ageism-in-design-digital-accessibility-for-older-adults/
-- Hou, G., et al. (2022). How to design font size for older adults. Frontiers in Psychology: https://doi.org/10.3389/fpsyg.2022.931646`,
+- Vispero — Preventing Ageism in Design: https://vispero.com/resources/preventing-ageism-in-design-digital-accessibility-for-older-adults/
+- Hou, G., et al. (2022). Frontiers in Psychology.`,
   },
   {
     id: 'g19',
+    category: 'Content and communication',
     code: 'AIWS-19 · Multilingual content',
     title: 'Do not assume English as the only language of older adult users',
-    body: `Older adults in the UK include significant communities for whom English is not a first language. Research has identified that no existing WCAG-based success criteria for older users address multilingual or bilingual websites, leaving a clear gap for services targeting diverse communities.
+    body: `Older adults may rely on multiple languages. Services should support key languages for their user base and avoid unreviewed machine translation for critical journeys.
 
-Services used by linguistically diverse older adult populations should: offer key transactional content in the most common community languages for their area; avoid machine-translated content for critical journeys such as health, legal, or financial services without human review; ensure language-switching controls are clearly visible and persistent across all pages; and not assume that a user's preferred language matches their browser locale.
+Language switching must be persistent and visible.
 
 References:
-- Improving WCAG for Elderly Web Accessibility — ResearchGate (2024): https://www.researchgate.net/publication/216742704_Improving_WCAG_for_elderly_Web_accessibility
-- ONS — Population of England and Wales by ethnic group (2021 Census): https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/ethnicity
-`,
+- Improving WCAG for Elderly Web Accessibility — ResearchGate (2024)
+- ONS — Census data on ethnicity (2021)`,
   },
 ];
