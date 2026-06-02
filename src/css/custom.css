@@ -162,3 +162,31 @@
   border-top: 1px solid var(--ifm-toc-border-color);
   margin: 0;
 }
+
+
+/* We are overriding template */
+.navbar__toggle {
+  display: none;
+}
+
+/* .navbar__items {
+  display: flex !important;
+} */
+
+.navbar__item {
+  display: inline-flex !important;
+} 
+
+.menu__list-item--collapsible > .menu__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  height: auto;
+  min-height: var(--ifm-navbar-height);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+}

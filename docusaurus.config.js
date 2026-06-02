@@ -27,8 +27,7 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: false,
         blog: {
           showReadingTime: true,
@@ -40,56 +39,75 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      }),
+      },
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      image: 'img/docusaurus-social-card.jpg',
-      colorMode: {
-        respectPrefersColorScheme: true,
-      },
+  themeConfig: {
+    image: 'img/docusaurus-social-card.jpg',
 
-      navbar: {
-        title: 'Age Inclusive Web',
-        items: [
-          { to: '/blog', label: 'Blog', position: 'left' },
-          { to: '/about', label: 'About', position: 'left' },
-          { to: '/resources', label: 'Resources', position: 'left' },
-          { to: '/contribute', label: 'Contribute', position: 'left' },
-          { to: '/pilot', label: 'Pilot', position: 'left' },
-          {
-            href: 'https://github.com/Efury1/Age-Inclusive-Web',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
+    colorMode: {
+      respectPrefersColorScheme: true,
+    },
 
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Links',
-            items: [
-              { label: 'Blog', to: '/blog' },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/your-github-username/your-repo',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
+    navbar: {
+      title: 'Age Inclusive Web',
 
-      prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
-      },
-    }),
+      items: [
+        { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/about', label: 'About', position: 'left' },
+
+        {
+          label: 'Explore',
+          position: 'left',
+          items: [
+            { to: '/resources', label: 'Resources' },
+            { to: '/contribute', label: 'Contribute' },
+            { to: '/pilot', label: 'Pilot' },
+          ],
+        },
+
+        {
+          href: 'https://github.com/Efury1/Age-Inclusive-Web',
+          label: 'GitHub',
+          position: 'left',
+        },
+      ],
+    },
+
+    footer: {
+      style: 'dark',
+
+      links: [
+        {
+          title: 'Navigate',
+          items: [
+            { label: 'Blog', to: '/blog' },
+            { label: 'About', to: '/about' },
+            { label: 'Resources', to: '/resources' },
+            { label: 'Contribute', to: '/contribute' },
+            { label: 'Pilot', to: '/pilot' },
+          ],
+        },
+        {
+          title: 'External',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/Efury1/Age-Inclusive-Web',
+            },
+          ],
+        },
+      ],
+
+      copyright: `Copyright © ${new Date().getFullYear()} Age Inclusive Web.`,
+    },
+
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+    },
+  },
 };
 
 export default config;
