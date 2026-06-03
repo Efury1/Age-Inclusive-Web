@@ -1,6 +1,12 @@
+// import eImg from '../static/img/e';
+
 export const GUIDELINES = [
   {
     id: 'g1',
+    image: {
+        src: '/img/e.jpg',
+        alt: 'Example of visible navigation with an Explore dropdown'
+    },
     category: 'Navigation and interaction',
     code: 'AIWS-01 · Navigation visibility',
     title: 'Avoid hiding actions inside abstract icons or hamburger menus',
@@ -8,8 +14,11 @@ export const GUIDELINES = [
 
 Desktop interfaces should avoid hamburger menus and instead display top-level navigation clearly. On mobile, if there are 4 or fewer links, show them directly. If there are more than 4, consider alternative structures such as in-page navigation or clearly supported expanded menus.
 
+For the image above, we have "Explore ▼" as a dropdown in the desktop nav. This is fine because the entire navbar isn't collapsed behind a hamburger icon. The distinction is that the whole nav isn't hidden behind an icon, with zero information scent. It is visible with a disclosed submenu, so top-level options are always scannable. 
+
+
 References:
-- Nielsen Norman Group — Hamburger Menus: https://www.nngroup.com/articles/hamburger-menus/`,
+- Nielsen Norman Group - Hamburger Menus: https://www.nngroup.com/articles/hamburger-menus/`,
   },
   {
     id: 'g2',
@@ -21,8 +30,8 @@ References:
 Provide save-and-return-later functionality and allow users to extend sessions. Where applicable, allow adjustment of interaction speed or experience pacing.
 
 References:
-- NatWest — Accessibility features and inclusive design: https://www.natwest.com/accessibility.html
-- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`,
+
+- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2) https://pmc.ncbi.nlm.nih.gov/articles/PMC1524856/`,
   },
   {
     id: 'g3',
@@ -31,11 +40,12 @@ References:
     title: 'Do not make mobile app use mandatory',
     body: `Not all users are comfortable with or have access to smartphones. Many older users prefer tablets or desktop devices.
 
-All critical services should be fully accessible via the web. Provide alternatives to smartphone authentication and avoid app-only flows.
+All critical services should be fully accessible via a web browser on desktop, without requiring a smartphone or mandatory app installation. Users should be able to complete key tasks online using standard web access.
+
+Login should support multiple options such as email and password, one-time codes via email or SMS, security keys, or printed backup codes. Assisted or paper-based identity verification should be available where needed. Clear recovery options are essential, including email recovery, backup codes, or support-assisted processes. Services should avoid app-only authentication and ensure full usability for users without smartphones, especially older adults.
 
 References:
-- Pew Research Center — Older Adults and Technology Use (2022): https://www.pewresearch.org/internet/2022/01/13/share-of-u-s-adults-using-social-media/
-- Ofcom — Adults' Media Use and Attitudes report (2023): https://www.ofcom.org.uk/research-and-data/media-literacy-research/adults/adults-media-use-and-attitudes`,
+- Pew Research Center (Mobile Fact Sheet): https://www.pewresearch.org/internet/fact-sheet/mobile/`,
   },
   {
     id: 'g4',
@@ -79,19 +89,6 @@ References:
 - Nielsen Norman Group — Writing Helpful Error Messages: https://www.nngroup.com/articles/error-message-guidelines/`,
   },
   {
-    id: 'g7',
-    category: 'Confidence, trust and anxiety',
-    code: 'AIWS-07 · Trust signals',
-    title: 'Avoid interface patterns that resemble phishing or feel illegitimate',
-    body: `Older adults are disproportionately targeted by online scams and have often been advised to be suspicious of unexpected digital interactions. Interface patterns common in legitimate services — unexpected redirects, mid-flow credential requests, unfamiliar modal dialogs — can trigger justified distrust and cause users to abandon safe services.
-
-Maintain consistent branding across all touchpoints (web, email, SMS). Avoid requesting passwords or sensitive information in contexts that differ from the user's established expectations. Clearly identify the organisation at every step of a flow, particularly in authentication and payment journeys.
-
-References:
-- Age UK — Fraud and Scams report (2022): https://www.ageuk.org.uk/information-advice/money-legal/scams-fraud/
-- Vishwanath, A. (2015). Examining the distinct antecedents of e-mail habits and its influence on the outcomes of a phishing attack. Journal of Computer-Mediated Communication, 20(5). https://academic.oup.com/jcmc/article/20/1/83/4067561`,
-  },
-  {
     id: 'g8',
     category: 'Content and communication',
     code: 'AIWS-08 · Plain language',
@@ -102,22 +99,7 @@ References:
 Use short sentences and active voice in all transactional content. Spell out acronyms on first use. Avoid instructions that rely on assumed knowledge of interface conventions ("tap the hamburger menu", "swipe to dismiss"). Target a reading age of 9–11 years for public-facing services, in line with GOV.UK content standards.
 
 References:
-- GOV.UK Content Design guidance: https://www.gov.uk/guidance/content-design/writing-for-gov-uk
-- Ofcom — Adults' Media Use and Attitudes report (2023): https://www.ofcom.org.uk/research-and-data/media-literacy-research/adults/adults-media-use-and-attitudes`,
-  },
-  {
-    id: 'g9',
-    category: 'Navigation and interaction',
-    code: 'AIWS-09 · Touch target sizing',
-    title: 'Use touch targets of at least 44×44px with sufficient spacing between them',
-    wcagOverlap: 'Partial WCAG overlap: WCAG 2.5.8 (Minimum Target Size, Level AA in WCAG 2.2) sets a minimum of 24×24px. The 44×44px recommendation here follows Apple Human Interface Guidelines and Google Material Design, and is supported by usability research with older adults as a more appropriate threshold.',
-    body: `Reduced fine motor control and hand tremor are common among older adults and increase the likelihood of mis-tapping small or closely spaced interactive elements. The consequences — accidental purchases, unintended navigation, form submission errors — are disproportionately distressing for users with lower digital confidence.
-
-Interactive elements should be at least 44×44 CSS pixels. Spacing between adjacent targets should be at least 8px. Avoid drag-and-drop as a primary interaction without providing a non-drag alternative.
-
-References:
-- Apple Human Interface Guidelines — Layout: https://developer.apple.com/design/human-interface-guidelines/layout
-- Coyne, K. P., & Nielsen, J. (2002). Web Usability for Senior Citizens. Nielsen Norman Group.`,
+- Key Challenges and Barriers to Digital Literacy for Older Adults: https://pmc.ncbi.nlm.nih.gov/articles/PMC12991319/`
   },
   {
     id: 'g10',
@@ -131,7 +113,7 @@ Carousels and slideshows must not advance automatically, or must provide a clear
 
 References:
 - Nielsen Norman Group — Auto-Forwarding Carousels: https://www.nngroup.com/articles/auto-forwarding/
-- Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology.`,
+- Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology: https://www.researchgate.net/publication/220606716_The_impact_of_aging_on_access_to_technology`,
   },
   {
     id: 'g11',
@@ -143,22 +125,7 @@ References:
 Provide inline hint text, tooltips, or expandable guidance at decision points within forms and multi-step flows. Where a term or field may be unfamiliar, explain it in context. Ensure that any guidance provided during a task can be accessed again without losing progress.
 
 References:
-- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).
-- Nielsen Norman Group — Embedded Help vs. External Help: https://www.nngroup.com/articles/embedded-help/`,
-  },
-  {
-    id: 'g12',
-    category: 'Privacy and safety',
-    code: 'AIWS-12 · Shared device privacy',
-    title: 'Design session and account management for shared device use',
-    body: `Many older adults, particularly those in care settings or living with family, share devices with others. Default session behaviour — staying logged in, storing autofill data, showing recent activity — can expose sensitive personal or financial information to other household members.
-
-Services handling personal, financial, or health data should default to session expiry after inactivity rather than persistent login. Autofill of sensitive fields (passwords, payment details) should not be pre-populated without explicit user action. Account activity should not be surfaced on shared home screens or in browser history without a clear opt-in.
-
-References:
-- Age UK — Digital Inclusion Evidence Review (2021): https://www.ageuk.org.uk/globalassets/age-uk/documents/reports-and-publications/reports-and-briefings/active-communities/rb_jan21_digital_inclusion_evidence_review.pdf
-- ICO — Privacy by Design guidance: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/guide-to-accountability-and-governance/accountability-and-governance/data-protection-by-design-and-default/
-- Vines, J., et al. (2015). Age-old problems? Designing with older adults. CHI Conference on Human Factors in Computing Systems.`,
+- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`
   },
   {
     id: 'g13',
@@ -202,7 +169,6 @@ The following patterns must not be used: pre-ticked boxes, hidden fees, confirm-
 
 References:
 - Nielsen Norman Group — Deceptive Patterns: https://www.nngroup.com/articles/deceptive-patterns/
-- UK Competition and Markets Authority — Online Choice Architecture (2022): https://www.gov.uk/government/publications/online-choice-architecture-how-digital-design-can-harm-competition-and-consumers
 - Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns.`,
   },
   {
@@ -215,8 +181,7 @@ References:
 Consent interfaces must present equal options, avoid pre-ticked boxes, and allow easy withdrawal.
 
 References:
-- "Okay, whatever": An Evaluation of Cookie Consent Interfaces — ACM CHI 2022: https://dl.acm.org/doi/10.1145/3491102.3501985
-- ICO — Guidance on Privacy in the Design of Online Services: https://ico.org.uk/for-organisations/guide-to-data-protection/`,
+- "Okay, whatever": An Evaluation of Cookie Consent Interfaces — ACM CHI 2022: https://dl.acm.org/doi/10.1145/3491102.3501985`
   },
   {
     id: 'g17',
@@ -229,32 +194,5 @@ Avoid overly alarming language, excessive red indicators, and unnecessary urgenc
 
 References:
 - Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`,
-  },
-  {
-    id: 'g18',
-    category: 'Cognitive load and usability',
-    code: 'AIWS-18 · Colour and ageing vision',
-    title: 'Go beyond WCAG contrast ratios to account for age-related vision changes',
-    wcagOverlap: 'Partial WCAG overlap: WCAG contrast rules do not fully account for ageing vision and lens yellowing effects.',
-    body: `Age-related vision changes reduce sensitivity to blue tones and increase difficulty distinguishing certain colour combinations even when contrast ratios pass WCAG.
-
-Prefer high-contrast black/white combinations and avoid relying on colour alone.
-
-References:
-- Vispero — Preventing Ageism in Design: https://vispero.com/resources/preventing-ageism-in-design-digital-accessibility-for-older-adults/
-- Hou, G., et al. (2022). Frontiers in Psychology.`,
-  },
-  {
-    id: 'g19',
-    category: 'Content and communication',
-    code: 'AIWS-19 · Multilingual content',
-    title: 'Do not assume English as the only language of older adult users',
-    body: `Older adults may rely on multiple languages. Services should support key languages for their user base and avoid unreviewed machine translation for critical journeys.
-
-Language switching must be persistent and visible.
-
-References:
-- Improving WCAG for Elderly Web Accessibility — ResearchGate (2024)
-- ONS — Census data on ethnicity (2021)`,
   },
 ];

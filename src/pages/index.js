@@ -78,6 +78,14 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
             <WcagBadge text={guideline.wcagOverlap} />
           )}
 
+          {guideline.image && (
+            <img
+              src={guideline.image.src}
+              alt={guideline.image.alt}
+              className={styles.guidelineImage}
+            />
+          )}
+
           {guideline.body.split('\n\n').map((para, i) => (
             <p key={i} className={styles.guidelinePara}>
               {linkify(para)}
