@@ -1,23 +1,23 @@
 // src/pages/index.js
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import { GUIDELINES } from '../data/guidelines';
 
-function WcagBadge({ text }) {
-  return (
-    <div className={styles.wcagBadge}>
-      <span className={styles.wcagBadgeIcon}>⚠</span>
-      <span>{text}</span>
-    </div>
-  );
+/* -----------------------------
+ * Utilities
+ * ----------------------------- */
+
+function getCodeNumber(code) {
+  const match = code.match(/\d+/);
+  return match ? parseInt(match[0], 10) : 0;
 }
 
 function linkify(text) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
 
   return text.split(urlRegex).map((part, i) => {
-    if (part.match(urlRegex)) {
+    if (urlRegex.test(part)) {
       return (
         <a key={i} href={part} target="_blank" rel="noreferrer">
           {part}
@@ -28,8 +28,40 @@ function linkify(text) {
   });
 }
 
-function GuidelineCard({ guideline, checked, onToggleCheck }) {
+/* -----------------------------
+ * Small UI components
+ * ----------------------------- */
+
+function WcagBadge({ text }) {
+  return (
+    <div className={styles.wcagBadge}>
+      <span className={styles.wcagBadgeIcon}>⚠</span>
+      <span>{text}</span>
+    </div>
+  );
+}
+
+/* -----------------------------
+ * Guideline Card
+ * ----------------------------- */
+
+function GuidelineCard({ guideline, checked, onToggle }) {
   const [open, setOpen] = useState(false);
+
+  const handleToggleOpen = () => setOpen((v) => !v);
+
+  const handleCheckboxClick = (event) => {
+    event.stopPropagation();
+    onToggle();
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      onToggle();
+    }
+  };
 
   return (
     <div
@@ -37,25 +69,16 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
         checked ? styles.guidelineCardChecked : ''
       }`}
     >
-      <div className={styles.guidelineHeader} onClick={() => setOpen(!open)}>
+      <div className={styles.guidelineHeader} onClick={handleToggleOpen}>
         <div
           className={`${styles.guidelineCheckbox} ${
             checked ? styles.guidelineCheckboxChecked : ''
           }`}
-          onClick={(event) => {
-            event.stopPropagation();
-            onToggleCheck();
-          }}
           role="checkbox"
           aria-checked={checked}
           tabIndex={0}
-          onKeyDown={(event) => {
-            if (event.key === ' ') {
-              event.preventDefault();
-              event.stopPropagation();
-              onToggleCheck();
-            }
-          }}
+          onClick={handleCheckboxClick}
+          onKeyDown={handleKeyDown}
         />
 
         <div className={styles.guidelineTitleGroup}>
@@ -79,15 +102,23 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
           )}
 
           {guideline.image && (
-            <img
-              src={guideline.image.src}
-              alt={guideline.image.alt}
-              className={styles.guidelineImage}
-            />
+            <figure className={styles.guidelineFigure}>
+              <div className={styles.guidelineImageFrame}>
+                <img
+                  src={guideline.image.src}
+                  alt={guideline.image.alt}
+                  className={styles.guidelineImage}
+                />
+              </div>
+
+              <figcaption className={styles.guidelineCaption}>
+                Example image - this is provided to help illustrate the guideline.
+              </figcaption>
+            </figure>
           )}
 
-          {guideline.body.split('\n\n').map((para, i) => (
-            <p key={i} className={styles.guidelinePara}>
+          {guideline.body.split('\n\n').map((para, index) => (
+            <p key={index} className={styles.guidelinePara}>
               {linkify(para)}
             </p>
           ))}
@@ -97,9 +128,9 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
   );
 }
 
-// Extracts the numeric part from a code string like "AIWS-03 · Memory load"
-// so we can sort numerically rather than alphabetically.
-const getCodeNumber = (code) => parseInt(code.match(/\d+/)[0], 10);
+/* -----------------------------
+ * Main Page
+ * ----------------------------- */
 
 export default function Home() {
   const [checked, setChecked] = useState(new Set());
@@ -112,26 +143,30 @@ export default function Home() {
     });
   };
 
-  const completedCount = checked.size;
-  const total = GUIDELINES.length;
-  const pct = (completedCount / total) * 100;
+  /* Derived data (keeps render clean) */
+  const { groupedGuidelines, progress } = useMemo(() => {
+    const sorted = [...GUIDELINES].sort(
+      (a, b) => getCodeNumber(a.code) - getCodeNumber(b.code)
+    );
 
-  // Sort a copy of GUIDELINES by AIWS number before grouping.
-  // This ensures both the category order and the item order within
-  // each category are driven by the numeric code, not insertion order.
-  const sorted = [...GUIDELINES].sort(
-    (a, b) => getCodeNumber(a.code) - getCodeNumber(b.code)
-  );
+    const grouped = sorted.reduce((acc, g) => {
+      if (!acc[g.category]) acc[g.category] = [];
+      acc[g.category].push(g);
+      return acc;
+    }, {});
 
-  // Group the sorted array by category. Because we sorted first,
-  // each category's items will already be in numeric order, and the
-  // categories themselves will appear in the order their lowest-numbered
-  // item was encountered.
-  const grouped = sorted.reduce((acc, g) => {
-    acc[g.category] = acc[g.category] || [];
-    acc[g.category].push(g);
-    return acc;
-  }, {});
+    const completed = checked.size;
+    const total = GUIDELINES.length;
+
+    return {
+      groupedGuidelines: grouped,
+      progress: {
+        completed,
+        total,
+        pct: (completed / total) * 100,
+      },
+    };
+  }, [checked]);
 
   return (
     <Layout
@@ -147,10 +182,7 @@ export default function Home() {
           <p className={styles.heroSubtitle}>
             A practical framework for designing inclusive digital services
             that meet the needs of older adults, placing particular emphasis
-            on older women as a priority audience. It addresses common
-            barriers such as lower digital confidence, caring
-            responsibilities, and the need to navigate multiple devices.
-            The framework is supported by actionable checklists.
+            on older women as a priority audience.
           </p>
         </div>
       </section>
@@ -164,27 +196,25 @@ export default function Home() {
           <div className={styles.progressBarBg}>
             <div
               className={styles.progressBarFill}
-              style={{ width: `${pct}%` }}
+              style={{ width: `${progress.pct}%` }}
             />
           </div>
 
           <div className={styles.progressCount}>
-            {completedCount} / {total}
+            {progress.completed} / {progress.total}
           </div>
         </div>
 
-        {Object.entries(grouped).map(([category, items]) => (
+        {Object.entries(groupedGuidelines).map(([category, items]) => (
           <section key={category} className={styles.categorySection}>
-            <h2 className={styles.categoryHeader}>
-              {category}
-            </h2>
+            <h2 className={styles.categoryHeader}>{category}</h2>
 
-            {items.map((g) => (
+            {items.map((guideline) => (
               <GuidelineCard
-                key={g.id}
-                guideline={g}
-                checked={checked.has(g.id)}
-                onToggleCheck={() => toggleCheck(g.id)}
+                key={guideline.id}
+                guideline={guideline}
+                checked={checked.has(guideline.id)}
+                onToggle={() => toggleCheck(guideline.id)}
               />
             ))}
           </section>

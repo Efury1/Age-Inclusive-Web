@@ -37,6 +37,10 @@ References:
     category: 'Cognitive load and usability',
     code: 'AIWS-03 · Time & pacing',
     title: 'Avoid time pressure and allow users to work at their own pace',
+    image: {
+      src: '/img/sessionActive.jpg',
+      alt: 'Example of visible navigation with an Explore dropdown',
+    },
     body: `Older adults may take longer to read, verify, and build confidence before submitting information. Systems should avoid forced time limits wherever possible.
 
 Provide save-and-return-later functionality and allow users to extend sessions. Where applicable, allow adjustment of interaction speed or experience pacing.
@@ -49,12 +53,18 @@ References:
     category: 'Cognitive load and usability',
     code: 'AIWS-04 · Memory load',
     title: 'Avoid requiring memorisation across steps or screens',
-    body: `Interfaces that rely on short-term recall increase errors and frustration. This is particularly pronounced in older adults, where working memory capacity is more likely to be reduced.
+    body: `Interfaces that rely heavily on short-term memory can increase user errors, confusion, and frustration. This effect is more pronounced among older adults, where working memory capacity may be reduced.
 
-Keep previously entered information visible where possible, use progress indicators, and avoid requiring users to remember codes or instructions across screens. Do not clear form fields after an error.
+To reduce cognitive load, previously entered information should remain visible wherever possible. Progress indicators should be used to help users understand where they are in a process, and users should not be required to remember codes, instructions, or details across different screens.
+
+Form fields must not be cleared after an error unless the user explicitly chooses to reset them. Preserving user input helps prevent data loss and reduces repeated effort.
+
+Field design should include clear, persistent labels rather than relying on placeholder text alone. Placeholder text disappears when users begin typing, which can create confusion or make it harder to verify what information is expected. Instead, labels should remain visible at all times, supported by helpful hints, descriptions, and examples where appropriate.
 
 References:
-- Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press: https://www.taylorfrancis.com/books/mono/10.1201/9781420080681/designing-older-adults-arthur-fisk-wendy-rogers-neil-charness-joseph-sharit-sara-czaja-sara-czaja`,
+- Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press: https://www.taylorfrancis.com/books/mono/10.1201/9781420080681/designing-older-adults-arthur-fisk-wendy-rogers-neil-charness-joseph-sharit-sara-czaja-sara-czaja
+
+- S. Kamalmax (2020): https://www.techguilds.com/blog/accessible-web-forms-for-older-adults/`,
   },
   {
     id: 'g10',
@@ -72,25 +82,33 @@ References:
 
 - Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology: https://www.researchgate.net/publication/220606716_The_impact_of_aging_on_access_to_technology
 
-- How to design font size for older adults, G. Hou, U. Anicetus, J. He (2022): https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.931646/full`,
+- Older Adults' Experiences of Interacting with Online Forms - A .Money, L .Lines, S Fernando, How to design font size for older adults, G. Hou, U. Anicetus, J. He (2022): https://www.researchgate.net/publication/265753295_Older_Adults'_Experiences_of_Interacting_with_Online_Forms`,
   },
   {
     id: 'g4',
     category: 'Support and assistance',
     code: 'AIWS-06 · Support visibility',
     title: 'Keep support options visible throughout high-risk flows',
-    body: `Older users are more likely to seek reassurance or human assistance during complex tasks. If help is not visible, they are more likely to abandon the process.
+     image: {
+      src: '/img/phoneAlternative.jpg',
+      alt: 'Example of visible navigation with an Explore dropdown',
+    },
+    body: `Older users are more likely to require direct access to human support during complex tasks. Lack of a clearly visible escalation path to a human agent increases the likelihood of abandonment.
 
-Provide persistent "Need help" links in forms and checkout flows. Include clear escalation paths from chatbots to human support. Where AI chat is used as a first point of contact, the route to a human agent must be clearly labelled and require no more than one step.
+Provide persistent “Need help” links in forms and checkout flows. These must include immediate escalation to a human agent. Where AI chat is used as the initial support layer, it must include a clearly labelled, one-step escalation to a human representative at all times.
 
 References:
-- Age UK — Digital Inclusion Evidence Review (2016):`,
+- Age UK - Digital Inclusion Evidence Review (2016):`,
   },
   {
     id: 'g11',
     category: 'Support and assistance',
     code: 'AIWS-07 · Contextual help',
     title: 'Provide help at the point of need, not only in a separate FAQ',
+    image: {
+      src: '/img/stepByStepHelp.jpg',
+      alt: 'Step by Step helper',
+    },
     body: `Older adults are less likely to seek help proactively and more likely to abandon a task if they encounter confusion without immediate guidance. A help section that requires navigation away from the current task is not sufficient for users with lower digital confidence or working memory challenges.
 
 Provide inline hint text, tooltips, or expandable guidance at decision points within forms and multi-step flows. Where a term or field may be unfamiliar, explain it in context. Ensure that any guidance provided during a task can be accessed again without losing progress.
@@ -103,13 +121,21 @@ References:
     category: 'Confidence, trust and anxiety',
     code: 'AIWS-08 · Error reassurance',
     title: 'Write error messages that reassure rather than alarm',
+    image: {
+      src: '/img/emailEntry.jpg',
+      alt: 'Example of visible navigation with an Explore dropdown',
+    },
     wcagOverlap:
       'Partial WCAG overlap: WCAG 3.3.1 (Error Identification) and 3.3.3 (Error Suggestion) require errors to be identified and described, but do not address tone, reassurance, or the emotional impact of error language.',
-    body: `Older adults with lower digital confidence are more likely to interpret error messages as permanent failures or as indicators they have done something seriously wrong. Alarming or vague error language increases abandonment.
+    body: `Older adults with lower digital confidence may interpret error messages as signs of failure or loss of progress. Without clear reassurance, this can lead to abandonment even when the issue is minor or easily fixed.
 
-Error messages should explain what happened in plain language, confirm that no damage has been done where applicable, and tell the user exactly what to do next. Avoid capitalised labels like "ERROR" or "FAILED" as standalone headings. Where an action is reversible, say so explicitly.
+Error messages must focus on helping users recover, not just describing the problem. They should explain what went wrong in plain language, confirm what is still safe or unchanged (for example, that no data has been lost), and provide a clear next step.
 
-Example: Instead of "Submission failed", use "We couldn't send your form — your information has been saved. Please check your internet connection and try again."
+Where possible, make it explicit when the issue is temporary or reversible. Avoid language that suggests blame or finality.
+
+Do not use capitalised or standalone labels such as “ERROR” or “FAILED” as headings, as these can increase anxiety without improving understanding.
+
+Example: Instead of “Submission failed”, use “We couldn’t send your form right now. Your information is still saved. Please check your internet connection and try again.”
 
 References:
 - Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press: https://www.taylorfrancis.com/books/mono/10.1201/9781420080681/designing-older-adults-arthur-fisk-wendy-rogers-neil-charness-joseph-sharit-sara-czaja-sara-czaja
@@ -119,12 +145,18 @@ References:
   {
     id: 'g17',
     category: 'Confidence, trust and anxiety',
-    code: 'AIWS-09 · Technology anxiety',
+    code: 'AIWS-09 · Neutral tone and visual feedback',
     title:
       'Use language and visual design that does not imply the user has made a serious mistake',
-    body: `Technology anxiety and low self-efficacy are major barriers to digital inclusion for older adults. Interfaces that imply fault, danger, or failure increase abandonment.
+    body: `Design everyday interfaces so users do not feel blamed or at fault during normal use
 
-Avoid overly alarming language, excessive red indicators, and unnecessary urgency.
+Technology anxiety and low self-efficacy are common barriers to digital inclusion for older adults. Even outside of error states, interfaces that suggest users are doing something wrong can reduce confidence and increase abandonment.
+
+This guideline applies to general interface language, navigation, and system feedback during normal use (for example: loading states, confirmations, and navigation prompts).
+
+Use neutral, supportive language that describes what the system is doing without implying user error or blame. Visual design should also remain calm and avoid unnecessary emphasis that suggests urgency or danger.
+
+Avoid excessive use of red, warning symbols, or urgent phrasing in non-error situations. These should only be used when there is a genuine safety, security, or data risk that requires immediate attention.
 
 References:
 - Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`,
@@ -135,9 +167,10 @@ References:
     code: 'AIWS-10 · Plain language',
     title:
       'Write transactional content at a reading level accessible to all adults',
+    
     wcagOverlap:
       'Partial WCAG overlap: WCAG 3.1.5 (Reading Level) recommends supplemental content for text requiring more than lower secondary education level, but this is Level AAA and is very rarely implemented. WCAG does not address assumed digital literacy in instructional language.',
-    body: `Many older adults, particularly those who left education earlier or who zdid not grow up with digital services, struggle with technical language, acronyms, and instructions that assume digital familiarity. Inaccessible language is one of the most commonly cited barriers to digital inclusion.
+    body: `Many older adults, particularly those who left education earlier or who did not grow up with digital services, struggle with technical language, acronyms, and instructions that assume digital familiarity. Inaccessible language is one of the most commonly cited barriers to digital inclusion.
 
 Use short sentences and active voice in all transactional content. Spell out acronyms on first use. Avoid instructions that rely on assumed knowledge of interface conventions ("tap the hamburger menu", "swipe to dismiss"). Target a reading age of 9–11 years for public-facing services, in line with GOV.UK content standards.
 
@@ -148,7 +181,12 @@ References:
     id: 'g13',
     category: 'Formats and deliverables',
     code: 'AIWS-11 · Offline & print fallback',
+    image: {
+      src: '/img/DownloadPDF.jpg',
+      alt: 'Example of visible navigation with an Explore dropdown',
+    },
     title: 'Ensure critical information is available outside the digital interface',
+
     body: `Digital-only service delivery excludes older adults who lack reliable internet access, lack confidence to complete tasks online, or who need a physical record for reassurance or reference. This is particularly acute for health, financial, and government services.
 
 Confirmation numbers, appointment details, and transaction records should be printable or downloadable as a PDF without requiring an account or further navigation. For critical services, a telephone or in-person alternative must exist and be clearly signposted alongside the digital journey.
@@ -162,14 +200,7 @@ References:
     code: 'AIWS-12 · PDF delivery',
     title:
       'Do not use PDF as the primary format for transactional or time-sensitive information',
-    body: `PDFs are one of the most common accessibility barriers for older adults online. Many PDFs produced by public services are untagged scanned images meaning text cannot be resized, and content cannot reflow on smaller screens.
-
-Where a PDF must be provided, it must also:
-Use a minimum body font size of 14pt
-Use left-aligned text rather than justified
-
-An HTML equivalent must always be offered alongside any PDF download. PDFs must never be the only way to access a form, confirmation, or service.
-
+    body: `PDFs are a common accessibility barrier, particularly for older adults and users with lower digital confidence. Unlike standard web content, PDFs often require additional software or plug-ins to open, download, or navigate, which can create unnecessary friction for users who are already struggling with basic digital tasks. Research in digital inclusion has shown that additional steps in a task flow significantly increase abandonment rates, especially among older users and those with limited digital literacy.
 References:
 `,
   },
@@ -184,7 +215,7 @@ References:
 The following patterns must not be used: pre-ticked boxes, hidden fees, confirm-shaming, false urgency, or asymmetric cancellation flows.
 
 References:
-- Nielsen Norman Group — Deceptive Patterns: https://www.nngroup.com/articles/deceptive-patterns/
+- Nielsen Norman Group - Deceptive Patterns: https://www.nngroup.com/articles/deceptive-patterns/
 
 - Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns.`,
   },
