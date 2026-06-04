@@ -97,6 +97,10 @@ function GuidelineCard({ guideline, checked, onToggleCheck }) {
   );
 }
 
+// Extracts the numeric part from a code string like "AIWS-03 · Memory load"
+// so we can sort numerically rather than alphabetically.
+const getCodeNumber = (code) => parseInt(code.match(/\d+/)[0], 10);
+
 export default function Home() {
   const [checked, setChecked] = useState(new Set());
 
@@ -112,7 +116,18 @@ export default function Home() {
   const total = GUIDELINES.length;
   const pct = (completedCount / total) * 100;
 
-  const grouped = GUIDELINES.reduce((acc, g) => {
+  // Sort a copy of GUIDELINES by AIWS number before grouping.
+  // This ensures both the category order and the item order within
+  // each category are driven by the numeric code, not insertion order.
+  const sorted = [...GUIDELINES].sort(
+    (a, b) => getCodeNumber(a.code) - getCodeNumber(b.code)
+  );
+
+  // Group the sorted array by category. Because we sorted first,
+  // each category's items will already be in numeric order, and the
+  // categories themselves will appear in the order their lowest-numbered
+  // item was encountered.
+  const grouped = sorted.reduce((acc, g) => {
     acc[g.category] = acc[g.category] || [];
     acc[g.category].push(g);
     return acc;
