@@ -172,12 +172,27 @@ function GuidelineCard({ guideline, checked, onToggle }) {
  * ----------------------------- */
 
 export default function Home() {
-  const [checked, setChecked] = useState(new Set());
+  // Initialise from localStorage on first render; fall back to empty Set
+  // if storage is unavailable (e.g. private browsing mode)
+  const [checked, setChecked] = useState(() => {
+    try {
+      const stored = localStorage.getItem('aiws-checked');
+      return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
 
   const toggleCheck = (id) => {
     setChecked((prev) => {
       const next = new Set(prev);
       next.has(id) ? next.delete(id) : next.add(id);
+      // Persist to localStorage; silently continue if unavailable
+      try {
+        localStorage.setItem('aiws-checked', JSON.stringify([...next]));
+      } catch {
+        // storage unavailable — silently continue
+      }
       return next;
     });
   };
@@ -259,7 +274,6 @@ export default function Home() {
           </div>
         </div>
 
- 
         {Object.entries(groupedGuidelines).map(([category, items]) => {
           const categoryId = `category-${category
             .replace(/\s+/g, '-')
