@@ -36,11 +36,11 @@ export default function About() {
         </p>
 
         <ul>
-          <li><a href="https://www.linkedin.com/in/bethany-lloyd/">Bethany Lloyd</a> — <a href="https://www.linkedin.com/company/london-borough-of-barnet/">London Borough of Barnet</a></li>
-          <li><a href="https://www.linkedin.com/in/emma-toublic-728506122/">Emma Toublic</a> — <a href="https://www.linkedin.com/company/essex-county-council/">Essex County Council</a></li>
-          <li><a href="https://www.linkedin.com/in/eliza-fury-3004b3110/">Eliza Fury</a> — <a href="https://www.linkedin.com/company/norfolkcc/">Norfolk County Council</a></li>
-          <li>Holly Plumb — <a href="https://www.linkedin.com/company/norfolkcc/">Norfolk County Council</a></li>
-          <li>Hoda Younis — <a href="https://www.linkedin.com/company/london-borough-of-hounslow/">London Borough of Hounslow</a> </li>
+          <li><a href="https://www.linkedin.com/in/bethany-lloyd/">Bethany Lloyd</a> - <a href="https://www.linkedin.com/company/london-borough-of-barnet/">London Borough of Barnet</a></li>
+          <li><a href="https://www.linkedin.com/in/emma-toublic-728506122/">Emma Toublic</a> - <a href="https://www.linkedin.com/company/essex-county-council/">Essex County Council</a></li>
+          <li><a href="https://www.linkedin.com/in/eliza-fury-3004b3110/">Eliza Fury</a> - <a href="https://www.linkedin.com/company/norfolkcc/">Norfolk County Council</a></li>
+          <li>Holly Plumb - <a href="https://www.linkedin.com/company/norfolkcc/">Norfolk County Council</a></li>
+          <li>Hoda Younis - <a href="https://www.linkedin.com/company/london-borough-of-hounslow/">London Borough of Hounslow</a> </li>
         </ul>
 
         <p>
