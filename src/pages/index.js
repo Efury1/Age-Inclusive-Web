@@ -1,7 +1,7 @@
 // src/pages/index.js
 import React, { useState, useMemo } from 'react';
 import Layout from '@theme/Layout';
-import styles from './index.module.css';
+import styles from '../css/index.module.css';
 import { GUIDELINES } from '../data/guidelines';
 
 

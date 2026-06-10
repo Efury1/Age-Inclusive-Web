@@ -1,3 +1,4 @@
+/* accordion */
 .accordionButton {
   display: flex;
   justify-content: space-between;
@@ -24,4 +25,394 @@
   color: #666;
   margin-top: 0.5rem;
   font-size: 0.95rem;
+}
+
+/* base */
+.agePage {
+  font-family: "GDS Transport", arial, sans-serif;
+  font-size: 1.1875rem;
+  line-height: 1.3157895;
+  color: #0b0c0c;
+  background-color: #ffffff;
+}
+
+/* skip link */
+.skipLink {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  z-index: 9999;
+  padding: 10px 15px;
+  background: #ffdd00;
+  color: #0b0c0c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skipLink:focus {
+  top: 0;
+}
+
+/* sr only */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* links */
+.agePage a {
+  color: #1a65a6;
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+  text-underline-offset: 0.15em;
+}
+
+.agePage a:hover {
+  color: #0f385c;
+  text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+}
+
+.agePage a:visited {
+  color: #54319f;
+}
+
+/* focus */
+.agePage a:focus-visible,
+.focusable:focus-visible {
+  outline: 3px solid transparent;
+  background-color: #ffdd00;
+  color: #0b0c0c;
+  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+  text-decoration: none;
+}
+
+/* hero */
+.hero {
+  background-color: #1d70b8;
+  padding: 30px 0;
+}
+
+.heroContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (min-width: 641px) {
+  .heroContainer {
+    padding: 0 30px;
+  }
+}
+
+.heroTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px;
+  line-height: 1.09375;
+}
+
+@media (min-width: 641px) {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.heroSubtitle {
+  font-size: 1.1875rem;
+  color: #ffffff;
+  margin: 0;
+  max-width: 66ch;
+}
+
+/* layout */
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px 15px 60px;
+}
+
+@media (min-width: 641px) {
+  .main {
+    padding: 40px 30px 80px;
+  }
+}
+
+/* progress */
+.progressCard {
+  border-left: 5px solid #1d70b8;
+  padding: 15px 20px;
+  margin-bottom: 40px;
+  background: #f3f2f1;
+}
+
+.progressLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.progressBarBg {
+  height: 10px;
+  background-color: #b1b4b6;
+  margin-bottom: 8px;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #00703c;
+  transition: width 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressBarFill {
+    transition: none;
+  }
+}
+
+.progressCount {
+  font-size: 0.875rem;
+  color: #505a5f;
+}
+
+/* category */
+.categorySection {
+  margin-bottom: 40px;
+}
+
+.categoryHeader {
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom: 2px solid #1d70b8;
+  padding-bottom: 10px;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+@media (min-width: 641px) {
+  .categoryHeader {
+    font-size: 1.875rem;
+  }
+}
+
+/* guideline card */
+.guidelineCard {
+  border-bottom: 1px solid #b1b4b6;
+  background-color: #ffffff;
+}
+
+.guidelineCard:first-of-type {
+  border-top: 1px solid #b1b4b6;
+}
+
+.guidelineCardChecked {
+  background-color: #f3f2f1;
+}
+
+/* hover moved to header for consistency */
+.guidelineCard:hover {
+  background-color: #f3f2f1;
+}
+
+/* header (FIX APPLIED HERE) */
+.guidelineHeader {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  padding: 0;
+  background-color: inherit; /* 🔑 ensures unified surface */
+}
+
+/* checkbox */
+.guidelineCheckbox {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #0b0c0c;
+  background-color: inherit; /* FIX */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.guidelineCheckbox:focus-visible {
+  outline: 3px solid transparent;
+  background-color: #ffdd00;
+  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+}
+
+.guidelineCheckboxChecked::after {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 10px;
+  border-left: 4px solid #0b0c0c;
+  border-bottom: 4px solid #0b0c0c;
+  transform: rotate(-45deg) translateY(-2px);
+}
+
+/* trigger */
+.guidelineTrigger {
+  all: unset;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  padding: 15px 0;
+
+  background-color: inherit; /* 🔑 FIX: removes “split surface” effect */
+}
+
+.guidelineTrigger:focus-visible {
+  outline: 3px solid transparent;
+  background-color: #ffdd00;
+  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+}
+
+/* title */
+.guidelineTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guidelineId {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #505a5f;
+  text-transform: uppercase;
+}
+
+.guidelineTitle {
+  font-size: 1.1875rem;
+  font-weight: 700;
+}
+
+/* wcag */
+.wcagPill {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: #f47738;
+  color: #ffffff;
+}
+
+/* expand */
+.guidelineExpand {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1a65a6;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* body */
+.guidelineBody {
+  padding: 15px 0 20px 55px;
+  border-top: 1px solid #b1b4b6;
+}
+
+/* wcag badge */
+.wcagBadge {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #fff7e6;
+  border-left: 5px solid #f47738;
+}
+
+.wcagBadgeIcon {
+  font-size: 1.5rem;
+}
+
+/* image */
+.guidelineFigure {
+  margin: 0 0 20px;
+}
+
+.guidelineImageFrame {
+  border: 1px solid #b1b4b6;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.guidelineImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.guidelineCaption {
+  font-size: 0.875rem;
+  color: #505a5f;
+  margin-top: 8px;
+}
+
+/* text */
+.guidelinePara {
+  font-size: 1.1875rem;
+  line-height: 1.3157895;
+  margin: 0 0 15px;
+  max-width: 66ch;
+}
+
+/* navbar */
+@media (max-width: 996px) {
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar__item {
+    display: block !important;
+  }
+}
+
+:root {
+  --ifm-navbar-height: auto;
+}
+
+.navbar {
+  height: auto;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.navbar__inner {
+  flex-wrap: wrap;
+  height: auto !important;
+  padding-bottom: 0;
+}
+
+.navbar__items {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+.navbar__toggle {
+  display: none !important;
+}
+
+.navbar__item {
+  display: flex !important;
 }
