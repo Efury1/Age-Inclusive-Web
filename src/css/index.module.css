@@ -1,287 +1,288 @@
-/* accordion */
-.accordionButton {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  text-align: left;
+/* =========================
+   BASE DESIGN TOKENS
+   ========================= */
+
+:root {
+  --font-main: "GDS Transport", Arial, sans-serif;
+
+  --color-text: #0b0c0c;
+  --color-bg: #ffffff;
+
+  --color-blue: #1d70b8;
+  --color-blue-dark: #144e81;
+
+  --color-grey-light: #f3f2f1;
+  --color-grey-mid: #b1b4b6;
+
+  --color-green: #00703c;
+  --color-warning: #f47738;
+
+  --color-focus: #ffdd00;
+
+  --space-1: 5px;
+  --space-2: 10px;
+  --space-3: 15px;
+  --space-4: 20px;
+  --space-6: 30px;
 }
 
-.accordionTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
+/* =========================
+   BASE STYLES
+   ========================= */
 
-.accordionIcon {
-  font-size: 0.875rem;
-  margin-left: 1rem;
-}
-
-.accordionSummary {
-  color: #666;
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-}
-
-/* base */
+body,
 .agePage {
-  font-family: "GDS Transport", arial, sans-serif;
-  font-size: 1.1875rem;
-  line-height: 1.3157895;
-  color: #0b0c0c;
-  background-color: #ffffff;
+  font-family: var(--font-main);
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
-/* skip link */
+/* =========================
+   LINKS
+   ========================= */
+
+a {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-blue-dark);
+}
+
+a:visited {
+  color: #4c2c92;
+}
+
+/* =========================
+   FOCUS STATES
+   ========================= */
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 0;
+  background: var(--color-focus);
+  color: var(--color-text);
+}
+
+/* =========================
+   ACCESSIBILITY HELPERS
+   ========================= */
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* =========================
+   SKIP LINK
+   ========================= */
+
 .skipLink {
   position: absolute;
   top: -9999px;
   left: 0;
-  z-index: 9999;
-  padding: 10px 15px;
-  background: #ffdd00;
-  color: #0b0c0c;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-focus);
   font-weight: 700;
-  text-decoration: none;
+  z-index: 1000;
 }
 
 .skipLink:focus {
   top: 0;
 }
 
-/* sr only */
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+/* =========================
+   HERO SECTION
+   ========================= */
 
-/* links */
-.agePage a {
-  color: #1a65a6;
-  text-decoration: underline;
-  text-decoration-thickness: max(1px, 0.0625rem);
-  text-underline-offset: 0.15em;
-}
-
-.agePage a:hover {
-  color: #0f385c;
-  text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
-}
-
-.agePage a:visited {
-  color: #54319f;
-}
-
-/* focus */
-.agePage a:focus-visible,
-.focusable:focus-visible {
-  outline: 3px solid transparent;
-  background-color: #ffdd00;
-  color: #0b0c0c;
-  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
-  text-decoration: none;
-}
-
-/* hero */
 .hero {
-  background-color: #1d70b8;
-  padding: 30px 0;
+  background: var(--color-blue);
+  color: #fff;
+  padding: var(--space-6) 0;
 }
 
 .heroContainer {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 15px;
-}
-
-@media (min-width: 641px) {
-  .heroContainer {
-    padding: 0 30px;
-  }
+  padding: 0 var(--space-3);
 }
 
 .heroTitle {
-  font-size: 2rem;
+  font-size: 48px;
+  line-height: 1.1;
   font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 15px;
-  line-height: 1.09375;
-}
-
-@media (min-width: 641px) {
-  .heroTitle {
-    font-size: 2.25rem;
-  }
+  margin-bottom: var(--space-3);
 }
 
 .heroSubtitle {
-  font-size: 1.1875rem;
-  color: #ffffff;
-  margin: 0;
-  max-width: 66ch;
+  font-size: 19px;
+  max-width: 38em;
 }
 
-/* layout */
+/* =========================
+   MAIN LAYOUT
+   ========================= */
+
 .main {
   max-width: 960px;
   margin: 0 auto;
-  padding: 30px 15px 60px;
+  padding: var(--space-6) var(--space-3);
 }
 
-@media (min-width: 641px) {
-  .main {
-    padding: 40px 30px 80px;
-  }
-}
+/* =========================
+   PROGRESS BLOCK
+   ========================= */
 
-/* progress */
 .progressCard {
-  border-left: 5px solid #1d70b8;
-  padding: 15px 20px;
-  margin-bottom: 40px;
-  background: #f3f2f1;
+  border-left: 5px solid var(--color-blue);
+  background: var(--color-grey-light);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .progressLabel {
-  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-2);
 }
 
 .progressBarBg {
   height: 10px;
-  background-color: #b1b4b6;
-  margin-bottom: 8px;
+  background: var(--color-grey-mid);
+  margin-bottom: var(--space-2);
 }
 
 .progressBarFill {
   height: 100%;
-  background-color: #00703c;
-  transition: width 0.2s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .progressBarFill {
-    transition: none;
-  }
+  background: var(--color-green);
 }
 
 .progressCount {
-  font-size: 0.875rem;
+  font-size: 16px;
   color: #505a5f;
 }
 
-/* category */
+/* =========================
+   CATEGORY HEADERS
+   ========================= */
+
 .categorySection {
-  margin-bottom: 40px;
+  margin-bottom: var(--space-6);
 }
 
 .categoryHeader {
-  font-size: 1.5rem;
+  font-size: 36px;
   font-weight: 700;
-  border-bottom: 2px solid #1d70b8;
-  padding-bottom: 10px;
-  margin: 0 0 10px;
-  line-height: 1.25;
+  border-bottom: 2px solid var(--color-blue);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
-@media (min-width: 641px) {
-  .categoryHeader {
-    font-size: 1.875rem;
-  }
-}
+/* =========================
+   =========================================
+   GOV.UK-STYLE GUIDELINE CARDS (UPDATED)
+   =========================================
+*/
 
-/* guideline card */
+/* CARD CONTAINER */
 .guidelineCard {
-  border-bottom: 1px solid #b1b4b6;
-  background-color: #ffffff;
+  border: 1px solid var(--color-grey-mid);
+  background: #ffffff;
+
+  margin-bottom: var(--space-3);
 }
 
-.guidelineCard:first-of-type {
-  border-top: 1px solid #b1b4b6;
-}
-
-.guidelineCardChecked {
-  background-color: #f3f2f1;
-}
-
-/* hover moved to header for consistency */
 .guidelineCard:hover {
-  background-color: #f3f2f1;
+  background: var(--color-grey-light);
 }
 
-/* header (FIX APPLIED HERE) */
+/* checked state = left accent (GOV.UK pattern) */
+.guidelineCardChecked {
+  background: var(--color-grey-light);
+  border-left: 5px solid var(--color-blue);
+}
+
+/* =========================
+   CARD HEADER
+   ========================= */
+
 .guidelineHeader {
   display: flex;
-  align-items: stretch;
-  gap: 8px;
-  padding: 0;
-  background-color: inherit; /* 🔑 ensures unified surface */
+  align-items: flex-start;
+  gap: var(--space-2);
+
+  padding: var(--space-2);
 }
 
-/* checkbox */
+/* =========================
+   CHECKBOX (GOV.UK FORM STYLE)
+   ========================= */
+
 .guidelineCheckbox {
-  flex-shrink: 0;
   width: 40px;
   height: 40px;
-  border: 2px solid #0b0c0c;
-  background-color: inherit; /* FIX */
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0;
-  border-radius: 4px;
-}
 
-.guidelineCheckbox:focus-visible {
-  outline: 3px solid transparent;
-  background-color: #ffdd00;
-  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
-}
+  margin-top: 2px;
 
-.guidelineCheckboxChecked::after {
-  content: '';
-  display: block;
-  width: 18px;
-  height: 10px;
-  border-left: 4px solid #0b0c0c;
-  border-bottom: 4px solid #0b0c0c;
-  transform: rotate(-45deg) translateY(-2px);
-}
+  border: 2px solid var(--color-text);
+  background: #fff;
 
-/* trigger */
-.guidelineTrigger {
-  all: unset;
-  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
   cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+/* checked state */
+.guidelineCheckboxChecked {
+  position: relative;
+}
+
+/* GOV.UK-style tick */
+.guidelineCheckboxChecked::after {
+  content: "";
+  width: 18px;
+  height: 10px;
+
+  border-left: 4px solid var(--color-text);
+  border-bottom: 4px solid var(--color-text);
+
+  transform: rotate(-45deg);
+}
+
+/* =========================
+   EXPAND BUTTON / TITLE AREA
+   ========================= */
+
+.guidelineTrigger {
+  flex: 1;
+
+  background: none;
+  border: 0;
+
   text-align: left;
-  padding: 15px 0;
 
-  background-color: inherit; /* 🔑 FIX: removes “split surface” effect */
+  padding: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  cursor: pointer;
 }
 
-.guidelineTrigger:focus-visible {
-  outline: 3px solid transparent;
-  background-color: #ffdd00;
-  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
-}
-
-/* title */
 .guidelineTitleGroup {
   display: flex;
   flex-direction: column;
@@ -289,128 +290,98 @@
 }
 
 .guidelineId {
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 700;
+
   color: #505a5f;
   text-transform: uppercase;
 }
 
 .guidelineTitle {
-  font-size: 1.1875rem;
+  font-size: 19px;
   font-weight: 700;
 }
 
-/* wcag */
-.wcagPill {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  background: #f47738;
-  color: #ffffff;
-}
-
-/* expand */
 .guidelineExpand {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #1a65a6;
+  color: var(--color-blue);
   text-decoration: underline;
   white-space: nowrap;
 }
 
-/* body */
+/* =========================
+   BODY CONTENT
+   ========================= */
+
 .guidelineBody {
-  padding: 15px 0 20px 55px;
-  border-top: 1px solid #b1b4b6;
+  padding: var(--space-3) var(--space-3) var(--space-4) 70px;
+  border-top: 1px solid var(--color-grey-mid);
+  max-width: 38em;
 }
 
-/* wcag badge */
+.guidelinePara {
+  margin-bottom: var(--space-3);
+  max-width: 38em;
+}
+
+/* =========================
+   WARNING BADGE
+   ========================= */
+
 .wcagBadge {
   display: flex;
-  gap: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
+  gap: var(--space-2);
+  padding: var(--space-3);
   background: #fff7e6;
-  border-left: 5px solid #f47738;
+  border-left: 5px solid var(--color-warning);
+  margin-bottom: var(--space-4);
 }
 
 .wcagBadgeIcon {
-  font-size: 1.5rem;
+  color: #d4351c;
 }
 
-/* image */
+/* =========================
+   IMAGE BLOCK
+   ========================= */
+
 .guidelineFigure {
-  margin: 0 0 20px;
+  margin-bottom: var(--space-4);
 }
 
 .guidelineImageFrame {
-  border: 1px solid #b1b4b6;
+  border: 1px solid var(--color-grey-mid);
   display: inline-block;
-  max-width: 100%;
 }
 
 .guidelineImage {
-  display: block;
   max-width: 100%;
-  height: auto;
+  display: block;
 }
 
 .guidelineCaption {
-  font-size: 0.875rem;
+  font-size: 16px;
   color: #505a5f;
-  margin-top: 8px;
+  margin-top: var(--space-2);
 }
 
-/* text */
-.guidelinePara {
-  font-size: 1.1875rem;
-  line-height: 1.3157895;
-  margin: 0 0 15px;
-  max-width: 66ch;
-}
-
-/* navbar */
-@media (max-width: 996px) {
-  .navbar__toggle {
-    display: none;
-  }
-
-  .navbar__items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .navbar__item {
-    display: block !important;
-  }
-}
-
-:root {
-  --ifm-navbar-height: auto;
-}
+/* =========================
+   SKIP NAV / NAVBAR FIXES
+   ========================= */
 
 .navbar {
-  height: auto;
+  border-bottom: 1px solid var(--color-grey-mid);
   position: sticky;
   top: 0;
-  border-bottom: 1px solid #d0d0d0;
+  background: #fff;
 }
 
-.navbar__inner {
-  flex-wrap: wrap;
-  height: auto !important;
-  padding-bottom: 0;
+.navbar__toggle {
+  display: none !important;
 }
 
 .navbar__items {
   display: flex !important;
   flex-wrap: wrap;
-}
-
-.navbar__toggle {
-  display: none !important;
 }
 
 .navbar__item {

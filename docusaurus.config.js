@@ -48,7 +48,9 @@ const config = {
     image: 'img/docusaurus-social-card.jpg',
 
     colorMode: {
+      defaultMode: 'light',
       respectPrefersColorScheme: true,
+      disableSwitch: false,
     },
 
     navbar: {
@@ -81,7 +83,7 @@ const config = {
     },
 
     footer: {
-      style: 'dark',
+      style: 'light',
 
       links: [
         {
@@ -89,7 +91,6 @@ const config = {
           items: [
             { label: 'Blog', to: '/blog' },
             { label: 'About', to: '/about' },
-            { label: 'Resources', to: '/resources' },
             { label: 'Contribute', to: '/contribute' },
             { label: 'Pilot', to: '/pilot' },
           ],
@@ -110,7 +111,7 @@ const config = {
 
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      darkTheme: prismThemes.github,
     },
   },
 };
