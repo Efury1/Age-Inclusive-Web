@@ -9,11 +9,10 @@ export default function Contribute() {
   return (
     <Layout
       title="How to Contribute"
-      description="Contribution guidelines for the Age-Inclusive Web Standard project."
+      description="Contribution guidelines for the Age Inclusive Web Standard project."
     >
       <main className={styles.main} style={{ color: defaultTheme.text }}>
 
-        {/* HERO */}
         <div className={styles.heroContainer}>
           <h1 className={styles.heroTitle}>How to Contribute</h1>
 
@@ -26,139 +25,166 @@ export default function Contribute() {
           </p>
         </div>
 
-        {/* PROJECT REPO */}
         <section className={styles.guidelineCard}>
           <h2>Project repository</h2>
 
-          <p>The source code is hosted on GitHub:</p>
+          <p>The source code is hosted on GitHub.</p>
 
           <a
-            href="https://github.com/Efury1/Age-Inclusive-Web"
-            target="_blank"
-            rel="noreferrer"
+            href="#"
             style={{ color: defaultTheme.accent }}
           >
-            https://github.com/Efury1/Age-Inclusive-Web
+          
           </a>
         </section>
 
-        {/* ACCORDION SYSTEM */}
-
         <Accordion allowMultiple={false}>
 
-          {/* DEVELOPERS */}
           <AccordionItem
             id="developers"
             title="Contributing as a developer"
-            summary="Help build, improve, and maintain the codebase. No prior contribution experience needed."
+            summary="Help build improve and maintain the codebase. No prior contribution experience needed."
           >
-            <p>Developers help build, improve, and maintain the codebase.</p>
+            <p>
+              Developers help build improve and maintain the codebase. This project is still evolving
+              and the current structure is not perfect. It has been put together quickly and we are now
+              moving toward a more deliberate component based structure so things are easier to scale and maintain.
+            </p>
 
-            <h3>Getting started</h3>
-            <ol>
-              <li>Fork the repository</li>
-              <li>Clone your fork locally</li>
-              <li>Create a feature branch</li>
-              <li>Install dependencies with <code>npm install</code></li>
-              <li>Run locally with <code>npm start</code></li>
-              <li>Make your changes</li>
-              <li>Write a clear commit message</li>
-              <li>Submit a pull request</li>
-            </ol>
+            <p>
+              The goal is to gradually move repeated interface patterns into reusable components and keep
+              logic separated from presentation so future changes are easier to manage.
+            </p>
 
-            <h3>Principles to follow</h3>
+            <h3>How to run the project</h3>
             <ul>
-              <li>Use clear, plain language in interfaces and documentation</li>
-              <li>Keep changes consistent with existing structure</li>
-              <li>Avoid dark patterns or manipulative UX</li>
-              <li>Treat accessibility as a requirement, not optional</li>
-              <li>Reference research-based claims</li>
+              <li>Install dependencies using yarn install</li>
+              <li>Start the development server using yarn start</li>
+              <li>Build changes in a feature branch</li>
             </ul>
 
-            <h3>Commit guidelines</h3>
+            <h3>How developers contribute</h3>
+            <ul>
+              <li>Build new features and improve existing ones</li>
+              <li>Fix reported issues</li>
+              <li>Improve accessibility for keyboard and screen reader users</li>
+              <li>Refactor rushed areas of the code into cleaner components</li>
+              <li>Improve consistency across the interface</li>
+              <li>Help reduce duplicated logic by creating shared components</li>
+            </ul>
+
+            <h3>Suggested organisation approach</h3>
+            <ul>
+              <li>Keep components in a shared components folder</li>
+              <li>Group related features into feature folders instead of scattering files</li>
+              <li>Separate layout elements from content components</li>
+              <li>Keep styling close to components when possible for clarity</li>
+              <li>Move repeated patterns into reusable building blocks</li>
+            </ul>
+
+            <h3>Working approach used in many open projects</h3>
+            <ul>
+              <li>Start from a small issue rather than large changes</li>
+              <li>Open a discussion before major structural changes</li>
+              <li>Keep pull requests focused on one improvement at a time</li>
+              <li>Write clear commit messages that explain intent</li>
+            </ul>
+
+            <h3>Commit guidance</h3>
             <ul>
               <li><code>Add category grouping to guidelines</code></li>
-              <li><code>Fix checkbox keyboard interaction</code></li>
-              <li><code>Improve mobile spacing in guideline cards</code></li>
+              <li><code>Fix keyboard navigation in accordion</code></li>
+              <li><code>Improve spacing in guideline cards</code></li>
             </ul>
 
             <p>
-              Avoid vague messages like <code>fix stuff</code> or <code>updates</code>.
+              Avoid vague commits like fix stuff or updates. Clear intent helps long term maintainability.
             </p>
 
             <h3>Reporting issues</h3>
             <ul>
               <li>Clear description of the problem</li>
               <li>Steps to reproduce</li>
-              <li>Expected vs actual behaviour</li>
-              <li>Screenshots where helpful</li>
-            </ul>
-
-            <h3>Useful resources</h3>
-            <ul>
-              <li><a href="https://docusaurus.io/docs/creating-pages" target="_blank" rel="noreferrer">Docusaurus: Creating pages</a></li>
-              <li><a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noreferrer">Docusaurus: Markdown features</a></li>
-              <li><a href="https://opensource.guide/how-to-contribute/" target="_blank" rel="noreferrer">Open Source Guide</a></li>
-              <li><a href="https://www.conventionalcommits.org/" target="_blank" rel="noreferrer">Conventional Commits</a></li>
+              <li>Expected behaviour compared to actual behaviour</li>
+              <li>Browser and device details</li>
+              <li>Screenshots if helpful</li>
             </ul>
           </AccordionItem>
 
-          {/* COUNCILS */}
           <AccordionItem
             id="councils"
             title="Contributing as a council"
-            summary="Share real-world experience, help with testing, and tell us what barriers people face. No coding required."
+            summary="Share real world experience and help with testing. No coding required."
           >
             <p>
-              Councils play a vital role in making sure this project reflects real-world experience.
+              Council contributors help ensure the project reflects real world needs rather than only
+              technical assumptions.
             </p>
 
-            <h3>Testing</h3>
-            <p>
-              Help us test whether guidance works in practice and flag unclear areas.
-            </p>
-
-            <h3>Evidence and research</h3>
-            <p>
-              Share research or evidence about older adults and digital access.
-            </p>
-
-            <h3>WCAG knowledge</h3>
-            <p>
-              Share barriers people face, even if they don’t map neatly to WCAG criteria.
-            </p>
-
-            <p>
-              Contact ejfury@protonmail.com
-            </p>
-          </AccordionItem>
-
-          {/* RESEARCHERS */}
-          <AccordionItem
-            id="researchers"
-            title="Contributing as a researcher"
-            summary="Share knowledge, provide oversight, and help connect evidence to practice."
-          >
-            <p>
-              Research helps ensure guidance is grounded in evidence.
-            </p>
-
-            <p>Researchers can contribute by:</p>
-
+            <h3>Testing and feedback</h3>
             <ul>
-              <li><strong>Sharing knowledge</strong> relevant to accessibility and age-inclusive design</li>
-              <li><strong>Providing oversight</strong> of claims and recommendations</li>
-              <li><strong>Amplifying findings</strong> and connecting research to practice</li>
+              <li>Review features and share usability feedback</li>
+              <li>Identify confusing navigation or unclear wording</li>
+              <li>Highlight accessibility barriers experienced in real use</li>
+              <li>Provide feedback from non technical users where possible</li>
+            </ul>
+
+            <h3>Accessibility insight</h3>
+            <ul>
+              <li>Report issues that affect older users or low experience users</li>
+              <li>Identify where interfaces feel overloaded or unclear</li>
+              <li>Suggest improvements based on lived experience</li>
+            </ul>
+
+            <h3>Research input</h3>
+            <ul>
+              <li>Share relevant studies or reports</li>
+              <li>Help validate whether guidance matches real evidence</li>
+              <li>Flag outdated assumptions in design recommendations</li>
             </ul>
 
             <p>
-              Contact ejfury@protonmail.com
+              Contact ejfury at protonmail.com for council participation or feedback submissions.
+            </p>
+          </AccordionItem>
+
+          <AccordionItem
+            id="researchers"
+            title="Contributing as a researcher"
+            summary="Share knowledge and help connect evidence to practice."
+          >
+            <p>
+              Research contributions help ensure guidance is grounded in evidence and not assumption.
+            </p>
+
+            <h3>What researchers can contribute</h3>
+            <ul>
+              <li>Share peer reviewed studies related to accessibility and ageing</li>
+              <li>Summarise research in a way that is usable for design decisions</li>
+              <li>Help validate claims made in guidelines</li>
+            </ul>
+
+            <h3>Review role</h3>
+            <ul>
+              <li>Check accuracy of recommendations</li>
+              <li>Identify unsupported statements</li>
+              <li>Suggest stronger or more recent sources</li>
+            </ul>
+
+            <h3>Connecting research and practice</h3>
+            <ul>
+              <li>Translate academic findings into practical design guidance</li>
+              <li>Highlight gaps between research and real world implementation</li>
+              <li>Support clearer communication of complex findings</li>
+            </ul>
+
+            <p>
+              Contact ejfury at protonmail.com for research collaboration or review contributions.
             </p>
           </AccordionItem>
 
         </Accordion>
 
-        {/* CODE OF CONDUCT */}
         <section className={styles.guidelineCard}>
           <h2>Code of conduct</h2>
 
@@ -167,7 +193,7 @@ export default function Contribute() {
           </p>
 
           <p>
-            Harassment, dismissive behaviour, or ignoring accessibility concerns is not acceptable.
+            Harassment dismissive behaviour or ignoring accessibility concerns is not acceptable.
           </p>
         </section>
 
