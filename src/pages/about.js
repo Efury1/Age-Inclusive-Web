@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 
 export default function Hello() {
   return (
-    <Layout title="Age Inclusive Web" description="Socitum workshop research overview">
+    <Layout title="Age Inclusive Web" description="Socitm workshop research overview">
       <div
         style={{
           maxWidth: '900px',
@@ -23,7 +23,7 @@ export default function Hello() {
         />
 
         <p>
-          This project originated as a Socitum workshop, incorporating both collaborative research and independent investigation, with a geographic focus on Norfolk, UK. The research engaged approximately 40 respondents across the 55–64 and 65+ age groups, with a particular focus on women as a key participant group.
+          This project originated as a Socitm workshop, incorporating both collaborative research and independent investigation, with a geographic focus on Norfolk, UK. The research engaged approximately 40 respondents across the 55–64 and 65+ age groups, with a particular focus on women as a key participant group.
         </p>
 
         {/* Age 55+ context image */}

@@ -90,8 +90,9 @@ function GuidelineCard({ guideline, checked, onToggle }) {
           )}
         </div>
 
-        <span className={styles.guidelineExpand}>
-          {open ? '−' : '+'}
+        {/* Accordion caret */}
+        <span className={styles.guidelineExpand} aria-hidden="true">
+          {open ? '▴' : '▾'}
         </span>
       </div>
 
@@ -143,7 +144,6 @@ export default function Home() {
     });
   };
 
-  /* Derived data (keeps render clean) */
   const { groupedGuidelines, progress } = useMemo(() => {
     const sorted = [...GUIDELINES].sort(
       (a, b) => getCodeNumber(a.code) - getCodeNumber(b.code)
@@ -187,39 +187,39 @@ export default function Home() {
         </div>
       </section>
 
-      <main className={styles.main}>
-        <div className={styles.progressCard}>
-          <div className={styles.progressLabel}>
-            Guidelines complete
-          </div>
+        <main className={styles.main}>
+          <div className={styles.progressCard}>
+            <div className={styles.progressLabel}>
+              Guidelines complete
+            </div>
 
-          <div className={styles.progressBarBg}>
-            <div
-              className={styles.progressBarFill}
-              style={{ width: `${progress.pct}%` }}
-            />
-          </div>
-
-          <div className={styles.progressCount}>
-            {progress.completed} / {progress.total}
-          </div>
-        </div>
-
-        {Object.entries(groupedGuidelines).map(([category, items]) => (
-          <section key={category} className={styles.categorySection}>
-            <h2 className={styles.categoryHeader}>{category}</h2>
-
-            {items.map((guideline) => (
-              <GuidelineCard
-                key={guideline.id}
-                guideline={guideline}
-                checked={checked.has(guideline.id)}
-                onToggle={() => toggleCheck(guideline.id)}
+            <div className={styles.progressBarBg}>
+              <div
+                className={styles.progressBarFill}
+                style={{ width: `${progress.pct}%` }}
               />
-            ))}
-          </section>
-        ))}
-      </main>
+            </div>
+
+            <div className={styles.progressCount}>
+              {progress.completed} / {progress.total}
+            </div>
+          </div>
+
+          {Object.entries(groupedGuidelines).map(([category, items]) => (
+            <section key={category} className={styles.categorySection}>
+              <h2 className={styles.categoryHeader}>{category}</h2>
+
+              {items.map((guideline) => (
+                <GuidelineCard
+                  key={guideline.id}
+                  guideline={guideline}
+                  checked={checked.has(guideline.id)}
+                  onToggle={() => toggleCheck(guideline.id)}
+                />
+              ))}
+            </section>
+          ))}
+        </main>
     </Layout>
   );
 }

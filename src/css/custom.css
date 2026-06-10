@@ -221,3 +221,16 @@
 img {
   border: 20px solid grey;
 }
+
+.contentContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.pageContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
