@@ -4,6 +4,9 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import { GUIDELINES } from '../data/guidelines';
 
+// ✅ ADD THIS IMPORT
+import DevNoticeBanner from '../components/Banner';
+
 /* -----------------------------
  * Utilities
  * ----------------------------- */
@@ -21,7 +24,6 @@ function linkify(text) {
       return (
         <a key={i} href={part} target="_blank" rel="noreferrer noopener">
           {part}
-          {/* GOV.UK pattern: warn SR users a new tab opens */}
           <span className={styles.srOnly}> (opens in new tab)</span>
         </a>
       );
@@ -39,14 +41,12 @@ function WcagBadge({ text }) {
   );
 }
 
-
 function GuidelineCard({ guideline, checked, onToggle }) {
   const [open, setOpen] = useState(false);
 
-  // Stable IDs for aria-controls / aria-labelledby wiring
-  const triggerId  = `trigger-${guideline.id}`;
-  const headingId  = `heading-${guideline.id}`;
-  const bodyId     = `body-${guideline.id}`;
+  const triggerId = `trigger-${guideline.id}`;
+  const headingId = `heading-${guideline.id}`;
+  const bodyId = `body-${guideline.id}`;
 
   const handleCheckboxClick = (e) => {
     e.stopPropagation();
@@ -90,11 +90,7 @@ function GuidelineCard({ guideline, checked, onToggle }) {
           aria-controls={bodyId}
         >
           <div className={styles.guidelineTitleGroup}>
-            {/* heading id used by aria-labelledby on the panel */}
-            <span
-              className={styles.guidelineId}
-              id={headingId}
-            >
+            <span className={styles.guidelineId} id={headingId}>
               {guideline.code}
             </span>
 
@@ -107,29 +103,18 @@ function GuidelineCard({ guideline, checked, onToggle }) {
                 className={styles.wcagPill}
                 aria-label="Has WCAG overlap"
               >
-                {/* Icon purely decorative — label above carries meaning */}
                 <span aria-hidden="true">⚠ </span>
                 WCAG overlap
               </span>
             )}
           </div>
 
-          {/* GOV.UK uses text not icons for show/hide state:
-              aria-hidden because aria-expanded on the button
-              already communicates state to screen readers        */}
           <span className={styles.guidelineExpand} aria-hidden="true">
             {open ? '– Hide' : '+ Show'}
           </span>
         </button>
       </div>
 
-      {/* ---- Expanded panel -----------------------------------
-          GOV.UK accordion panel pattern:
-          - id matches aria-controls on the trigger
-          - role="region" creates a landmark (navigable by SR)
-          - aria-labelledby → heading id inside the trigger,
-            so SR announces e.g. "AIWS-01 Visual Clarity, region"
-      ------------------------------------------------------- */}
       {open && (
         <div
           id={bodyId}
@@ -172,8 +157,6 @@ function GuidelineCard({ guideline, checked, onToggle }) {
  * ----------------------------- */
 
 export default function Home() {
-  // Initialise from localStorage on first render; fall back to empty Set
-  // if storage is unavailable (e.g. private browsing mode)
   const [checked, setChecked] = useState(() => {
     try {
       const stored = localStorage.getItem('aiws-checked');
@@ -187,12 +170,11 @@ export default function Home() {
     setChecked((prev) => {
       const next = new Set(prev);
       next.has(id) ? next.delete(id) : next.add(id);
-      // Persist to localStorage; silently continue if unavailable
+
       try {
         localStorage.setItem('aiws-checked', JSON.stringify([...next]));
-      } catch {
-        // storage unavailable — silently continue
-      }
+      } catch {}
+
       return next;
     });
   };
@@ -209,7 +191,7 @@ export default function Home() {
     }, {});
 
     const completed = checked.size;
-    const total     = GUIDELINES.length;
+    const total = GUIDELINES.length;
 
     return {
       groupedGuidelines: grouped,
@@ -226,7 +208,10 @@ export default function Home() {
       title="Age-Inclusive Web Standard"
       description="A practical framework for designing inclusive digital services for older adults."
     >
-      {/* GOV.UK pattern: skip link lets keyboard users jump past nav */}
+      {/* ✅ Banner directly under navbar */}
+      <DevNoticeBanner />
+
+      {/* Skip link */}
       <a href="#main-content" className={styles.skipLink}>
         Skip to main content
       </a>
@@ -245,12 +230,8 @@ export default function Home() {
       </section>
 
       <main id="main-content" className={styles.main}>
-
         <div className={styles.progressCard}>
-          <div
-            className={styles.progressLabel}
-            id="progress-label"
-          >
+          <div className={styles.progressLabel} id="progress-label">
             Guidelines complete
           </div>
 
@@ -286,10 +267,7 @@ export default function Home() {
               className={styles.categorySection}
               aria-labelledby={categoryId}
             >
-              <h2
-                className={styles.categoryHeader}
-                id={categoryId}
-              >
+              <h2 className={styles.categoryHeader} id={categoryId}>
                 {category}
               </h2>
 
