@@ -201,7 +201,8 @@ References:
     title:
       'Do not use PDF as the primary format for transactional or time-sensitive information',
     body: `PDFs are a common accessibility barrier, particularly for older adults and users with lower digital confidence. Unlike standard web content, PDFs often require additional software or plug-ins to open, download, or navigate, which can create unnecessary friction for users who are already struggling with basic digital tasks. Research in digital inclusion has shown that additional steps in a task flow significantly increase abandonment rates, especially among older users and those with limited digital literacy.
-References:
+    
+References: Why GOV.uk content should be published in HTML not PDF: https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
 `,
   },
   {
