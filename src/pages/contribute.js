@@ -129,7 +129,7 @@ export default function Contribute() {
             </p>
 
             <p>
-              Contact us via GitHub issues or the repository.
+              Contact ejfury@protonmail.com
             </p>
           </AccordionItem>
 
@@ -152,7 +152,7 @@ export default function Contribute() {
             </ul>
 
             <p>
-              Contact via GitHub issues or the repository.
+              Contact ejfury@protonmail.com
             </p>
           </AccordionItem>
 
