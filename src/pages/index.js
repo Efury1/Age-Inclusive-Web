@@ -19,8 +19,10 @@ function linkify(text) {
   return text.split(urlRegex).map((part, i) => {
     if (urlRegex.test(part)) {
       return (
-        <a key={i} href={part} target="_blank" rel="noreferrer">
+        <a key={i} href={part} target="_blank" rel="noreferrer noopener">
           {part}
+          {/* GOV.UK pattern: warn SR users a new tab opens */}
+          <span className={styles.srOnly}> (opens in new tab)</span>
         </a>
       );
     }
@@ -28,35 +30,31 @@ function linkify(text) {
   });
 }
 
-/* -----------------------------
- * Small UI components
- * ----------------------------- */
-
 function WcagBadge({ text }) {
   return (
-    <div className={styles.wcagBadge}>
-      <span className={styles.wcagBadgeIcon}>⚠</span>
+    <div className={styles.wcagBadge} role="note">
+      <span className={styles.wcagBadgeIcon} aria-hidden="true">⚠</span>
       <span>{text}</span>
     </div>
   );
 }
 
-/* -----------------------------
- * Guideline Card
- * ----------------------------- */
 
 function GuidelineCard({ guideline, checked, onToggle }) {
   const [open, setOpen] = useState(false);
 
-  const handleToggleOpen = () => setOpen((v) => !v);
+  // Stable IDs for aria-controls / aria-labelledby wiring
+  const triggerId  = `trigger-${guideline.id}`;
+  const headingId  = `heading-${guideline.id}`;
+  const bodyId     = `body-${guideline.id}`;
 
-  const handleCheckboxClick = (event) => {
-    event.stopPropagation();
+  const handleCheckboxClick = (e) => {
+    e.stopPropagation();
     onToggle();
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === ' ') {
+  const handleCheckboxKeyDown = (e) => {
+    if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       e.stopPropagation();
       onToggle();
@@ -69,35 +67,76 @@ function GuidelineCard({ guideline, checked, onToggle }) {
         checked ? styles.guidelineCardChecked : ''
       }`}
     >
-      <div className={styles.guidelineHeader} onClick={handleToggleOpen}>
+      <div className={styles.guidelineHeader}>
+
         <div
           className={`${styles.guidelineCheckbox} ${
             checked ? styles.guidelineCheckboxChecked : ''
           }`}
           role="checkbox"
           aria-checked={checked}
+          aria-label={`Mark "${guideline.title}" as complete`}
           tabIndex={0}
           onClick={handleCheckboxClick}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleCheckboxKeyDown}
         />
 
-        <div className={styles.guidelineTitleGroup}>
-          <span className={styles.guidelineId}>{guideline.code}</span>
-          <div className={styles.guidelineTitle}>{guideline.title}</div>
+        <button
+          type="button"
+          id={triggerId}
+          className={`${styles.guidelineTrigger} ${styles.focusable}`}
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls={bodyId}
+        >
+          <div className={styles.guidelineTitleGroup}>
+            {/* heading id used by aria-labelledby on the panel */}
+            <span
+              className={styles.guidelineId}
+              id={headingId}
+            >
+              {guideline.code}
+            </span>
 
-          {guideline.wcagOverlap && (
-            <span className={styles.wcagPill}>⚠ WCAG overlap</span>
-          )}
-        </div>
+            <div className={styles.guidelineTitle}>
+              {guideline.title}
+            </div>
 
-        {/* Accordion caret */}
-        <span className={styles.guidelineExpand} aria-hidden="true">
-          {open ? '▴' : '▾'}
-        </span>
+            {guideline.wcagOverlap && (
+              <span
+                className={styles.wcagPill}
+                aria-label="Has WCAG overlap"
+              >
+                {/* Icon purely decorative — label above carries meaning */}
+                <span aria-hidden="true">⚠ </span>
+                WCAG overlap
+              </span>
+            )}
+          </div>
+
+          {/* GOV.UK uses text not icons for show/hide state:
+              aria-hidden because aria-expanded on the button
+              already communicates state to screen readers        */}
+          <span className={styles.guidelineExpand} aria-hidden="true">
+            {open ? '– Hide' : '+ Show'}
+          </span>
+        </button>
       </div>
 
+      {/* ---- Expanded panel -----------------------------------
+          GOV.UK accordion panel pattern:
+          - id matches aria-controls on the trigger
+          - role="region" creates a landmark (navigable by SR)
+          - aria-labelledby → heading id inside the trigger,
+            so SR announces e.g. "AIWS-01 Visual Clarity, region"
+      ------------------------------------------------------- */}
       {open && (
-        <div className={styles.guidelineBody}>
+        <div
+          id={bodyId}
+          className={styles.guidelineBody}
+          role="region"
+          aria-labelledby={headingId}
+        >
           {guideline.wcagOverlap && (
             <WcagBadge text={guideline.wcagOverlap} />
           )}
@@ -111,9 +150,8 @@ function GuidelineCard({ guideline, checked, onToggle }) {
                   className={styles.guidelineImage}
                 />
               </div>
-
               <figcaption className={styles.guidelineCaption}>
-                Example image - this is provided to help illustrate the guideline.
+                Example image – provided to help illustrate the guideline.
               </figcaption>
             </figure>
           )}
@@ -156,14 +194,14 @@ export default function Home() {
     }, {});
 
     const completed = checked.size;
-    const total = GUIDELINES.length;
+    const total     = GUIDELINES.length;
 
     return {
       groupedGuidelines: grouped,
       progress: {
         completed,
         total,
-        pct: (completed / total) * 100,
+        pct: total > 0 ? Math.round((completed / total) * 100) : 0,
       },
     };
   }, [checked]);
@@ -173,12 +211,16 @@ export default function Home() {
       title="Age-Inclusive Web Standard"
       description="A practical framework for designing inclusive digital services for older adults."
     >
+      {/* GOV.UK pattern: skip link lets keyboard users jump past nav */}
+      <a href="#main-content" className={styles.skipLink}>
+        Skip to main content
+      </a>
+
       <section className={styles.hero}>
         <div className={styles.heroContainer}>
           <h1 className={styles.heroTitle}>
             Age-Inclusive Web Standard
           </h1>
-
           <p className={styles.heroSubtitle}>
             A practical framework for designing inclusive digital services
             that meet the needs of older adults, placing particular emphasis
@@ -187,27 +229,55 @@ export default function Home() {
         </div>
       </section>
 
-        <main className={styles.main}>
-          <div className={styles.progressCard}>
-            <div className={styles.progressLabel}>
-              Guidelines complete
-            </div>
+      <main id="main-content" className={styles.main}>
 
-            <div className={styles.progressBarBg}>
-              <div
-                className={styles.progressBarFill}
-                style={{ width: `${progress.pct}%` }}
-              />
-            </div>
-
-            <div className={styles.progressCount}>
-              {progress.completed} / {progress.total}
-            </div>
+        <div className={styles.progressCard}>
+          <div
+            className={styles.progressLabel}
+            id="progress-label"
+          >
+            Guidelines complete
           </div>
 
-          {Object.entries(groupedGuidelines).map(([category, items]) => (
-            <section key={category} className={styles.categorySection}>
-              <h2 className={styles.categoryHeader}>{category}</h2>
+          <div
+            className={styles.progressBarBg}
+            role="progressbar"
+            aria-labelledby="progress-label"
+            aria-valuenow={progress.completed}
+            aria-valuemin={0}
+            aria-valuemax={progress.total}
+            aria-valuetext={`${progress.completed} of ${progress.total} guidelines complete`}
+          >
+            <div
+              className={styles.progressBarFill}
+              style={{ width: `${progress.pct}%` }}
+            />
+          </div>
+
+          <div className={styles.progressCount} aria-hidden="true">
+            {progress.completed} / {progress.total}
+          </div>
+        </div>
+
+ 
+        {Object.entries(groupedGuidelines).map(([category, items]) => {
+          const categoryId = `category-${category
+            .replace(/\s+/g, '-')
+            .replace(/[^a-z0-9-]/gi, '')
+            .toLowerCase()}`;
+
+          return (
+            <section
+              key={category}
+              className={styles.categorySection}
+              aria-labelledby={categoryId}
+            >
+              <h2
+                className={styles.categoryHeader}
+                id={categoryId}
+              >
+                {category}
+              </h2>
 
               {items.map((guideline) => (
                 <GuidelineCard
@@ -218,8 +288,9 @@ export default function Home() {
                 />
               ))}
             </section>
-          ))}
-        </main>
+          );
+        })}
+      </main>
     </Layout>
   );
 }
