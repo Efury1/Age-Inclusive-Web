@@ -1,0 +1,27 @@
+.accordionButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.accordionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.accordionIcon {
+  font-size: 0.875rem;
+  margin-left: 1rem;
+}
+
+.accordionSummary {
+  color: #666;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}

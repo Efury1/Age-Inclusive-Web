@@ -1,6 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import defaultTheme from '../theme/colors';
 import styles from './index.module.css';
+
+import { Accordion, AccordionItem } from '../components/Accordion';
 
 export default function Contribute() {
   return (
@@ -8,144 +11,166 @@ export default function Contribute() {
       title="How to Contribute"
       description="Contribution guidelines for the Age-Inclusive Web Standard project."
     >
-      <main className={styles.main}>
+      <main className={styles.main} style={{ color: defaultTheme.text }}>
+
+        {/* HERO */}
         <div className={styles.heroContainer}>
           <h1 className={styles.heroTitle}>How to Contribute</h1>
 
-          <p className={styles.heroSubtitle}>
-            This project is open source and welcomes contributions from designers,
-            developers, researchers, and accessibility practitioners.
+          <p
+            className={styles.heroSubtitle}
+            style={{ color: defaultTheme.muted }}
+          >
+            This project welcomes contributions from developers, councils, and researchers.
+            Select a role below to see how you can get involved.
           </p>
         </div>
 
+        {/* PROJECT REPO */}
         <section className={styles.guidelineCard}>
           <h2>Project repository</h2>
 
-          <p>
-            The source code is hosted on GitHub:
-          </p>
+          <p>The source code is hosted on GitHub:</p>
 
-          <p>
-            <a
-              href="https://github.com/Efury1/Age-Inclusive-Web"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://github.com/Efury1/Age-Inclusive-Web
-            </a>
-          </p>
+          <a
+            href="https://github.com/Efury1/Age-Inclusive-Web"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: defaultTheme.accent }}
+          >
+            https://github.com/Efury1/Age-Inclusive-Web
+          </a>
         </section>
 
-        <section className={styles.guidelineCard}>
-          <h2>How to contribute</h2>
+        {/* ACCORDION SYSTEM */}
 
-          <ol>
-            <li>Fork the repository</li>
-            <li>Clone your fork locally</li>
-            <li>Create a feature branch</li>
-            <li>Install dependencies using <code>npm install</code></li>
-            <li>Run locally with <code>npm start</code></li>
-            <li>Make your changes</li>
-            <li>Write clear commit messages</li>
-            <li>Submit a pull request</li>
-          </ol>
-        </section>
+        <Accordion allowMultiple={false}>
 
-        <section className={styles.guidelineCard}>
-          <h2>Contribution guidelines</h2>
+          {/* DEVELOPERS */}
+          <AccordionItem
+            id="developers"
+            title="Contributing as a developer"
+            summary="Help build, improve, and maintain the codebase. No prior contribution experience needed."
+          >
+            <p>Developers help build, improve, and maintain the codebase.</p>
 
-          <p>
-            Contributions should align with the goals of inclusive, age-aware design.
-            Please follow these principles:
-          </p>
+            <h3>Getting started</h3>
+            <ol>
+              <li>Fork the repository</li>
+              <li>Clone your fork locally</li>
+              <li>Create a feature branch</li>
+              <li>Install dependencies with <code>npm install</code></li>
+              <li>Run locally with <code>npm start</code></li>
+              <li>Make your changes</li>
+              <li>Write a clear commit message</li>
+              <li>Submit a pull request</li>
+            </ol>
 
-          <ul>
-            <li>Use clear, plain language</li>
-            <li>Maintain consistency with existing structure</li>
-            <li>Avoid dark patterns or manipulative UX practices</li>
-            <li>Ensure accessibility is considered in all changes</li>
-            <li>Provide references for any research-based claims</li>
-          </ul>
-        </section>
+            <h3>Principles to follow</h3>
+            <ul>
+              <li>Use clear, plain language in interfaces and documentation</li>
+              <li>Keep changes consistent with existing structure</li>
+              <li>Avoid dark patterns or manipulative UX</li>
+              <li>Treat accessibility as a requirement, not optional</li>
+              <li>Reference research-based claims</li>
+            </ul>
 
-        <section className={styles.guidelineCard}>
-          <h2>Reporting issues</h2>
+            <h3>Commit guidelines</h3>
+            <ul>
+              <li><code>Add category grouping to guidelines</code></li>
+              <li><code>Fix checkbox keyboard interaction</code></li>
+              <li><code>Improve mobile spacing in guideline cards</code></li>
+            </ul>
 
-          <p>
-            If you find a bug or have a suggestion, open an issue on GitHub.
-          </p>
+            <p>
+              Avoid vague messages like <code>fix stuff</code> or <code>updates</code>.
+            </p>
 
-          <p>Include:</p>
+            <h3>Reporting issues</h3>
+            <ul>
+              <li>Clear description of the problem</li>
+              <li>Steps to reproduce</li>
+              <li>Expected vs actual behaviour</li>
+              <li>Screenshots where helpful</li>
+            </ul>
 
-          <ul>
-            <li>Clear description of the issue</li>
-            <li>Steps to reproduce (if applicable)</li>
-            <li>Expected vs actual behaviour</li>
-            <li>Screenshots where helpful</li>
-          </ul>
-        </section>
+            <h3>Useful resources</h3>
+            <ul>
+              <li><a href="https://docusaurus.io/docs/creating-pages" target="_blank" rel="noreferrer">Docusaurus: Creating pages</a></li>
+              <li><a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noreferrer">Docusaurus: Markdown features</a></li>
+              <li><a href="https://opensource.guide/how-to-contribute/" target="_blank" rel="noreferrer">Open Source Guide</a></li>
+              <li><a href="https://www.conventionalcommits.org/" target="_blank" rel="noreferrer">Conventional Commits</a></li>
+            </ul>
+          </AccordionItem>
 
-        <section className={styles.guidelineCard}>
-          <h2>Commit guidelines</h2>
+          {/* COUNCILS */}
+          <AccordionItem
+            id="councils"
+            title="Contributing as a council"
+            summary="Share real-world experience, help with testing, and tell us what barriers people face. No coding required."
+          >
+            <p>
+              Councils play a vital role in making sure this project reflects real-world experience.
+            </p>
 
-          <ul>
-            <li>Use descriptive commit messages</li>
-            <li>Keep commits focused and small</li>
-            <li>Avoid vague messages like “fix stuff”</li>
-          </ul>
+            <h3>Testing</h3>
+            <p>
+              Help us test whether guidance works in practice and flag unclear areas.
+            </p>
 
-          <p>Examples:</p>
-          <ul>
-            <li><code>Add category grouping to guidelines</code></li>
-            <li><code>Fix checkbox keyboard interaction</code></li>
-            <li><code>Improve mobile spacing in guideline cards</code></li>
-          </ul>
-        </section>
+            <h3>Evidence and research</h3>
+            <p>
+              Share research or evidence about older adults and digital access.
+            </p>
 
-        <section className={styles.guidelineCard}>
-          <h2>Documentation and best practices</h2>
+            <h3>WCAG knowledge</h3>
+            <p>
+              Share barriers people face, even if they don’t map neatly to WCAG criteria.
+            </p>
 
-          <p>
-            If you're new to contributing, these resources are recommended:
-          </p>
+            <p>
+              Contact us via GitHub issues or the repository.
+            </p>
+          </AccordionItem>
 
-          <ul>
-            <li>
-              <a href="https://docusaurus.io/docs/creating-pages" target="_blank" rel="noreferrer">
-                Docusaurus: Creating pages
-              </a>
-            </li>
-            <li>
-              <a href="https://docusaurus.io/docs/markdown-features" target="_blank" rel="noreferrer">
-                Docusaurus: Markdown features
-              </a>
-            </li>
-            <li>
-              <a href="https://opensource.guide/how-to-contribute/" target="_blank" rel="noreferrer">
-                GitHub Open Source Guide: How to contribute
-              </a>
-            </li>
-            <li>
-              <a href="https://www.conventionalcommits.org/" target="_blank" rel="noreferrer">
-                Conventional Commits specification
-              </a>
-            </li>
-          </ul>
-        </section>
+          {/* RESEARCHERS */}
+          <AccordionItem
+            id="researchers"
+            title="Contributing as a researcher"
+            summary="Share knowledge, provide oversight, and help connect evidence to practice."
+          >
+            <p>
+              Research helps ensure guidance is grounded in evidence.
+            </p>
 
+            <p>Researchers can contribute by:</p>
+
+            <ul>
+              <li><strong>Sharing knowledge</strong> relevant to accessibility and age-inclusive design</li>
+              <li><strong>Providing oversight</strong> of claims and recommendations</li>
+              <li><strong>Amplifying findings</strong> and connecting research to practice</li>
+            </ul>
+
+            <p>
+              Contact via GitHub issues or the repository.
+            </p>
+          </AccordionItem>
+
+        </Accordion>
+
+        {/* CODE OF CONDUCT */}
         <section className={styles.guidelineCard}>
           <h2>Code of conduct</h2>
 
           <p>
-            This project is focused on inclusive and respectful design for older adults.
-            All contributors are expected to communicate professionally and constructively.
+            All contributors are expected to communicate respectfully and constructively.
           </p>
 
           <p>
-            Unacceptable behaviour includes disrespectful language, harassment,
-            or dismissal of accessibility concerns.
+            Harassment, dismissive behaviour, or ignoring accessibility concerns is not acceptable.
           </p>
         </section>
+
       </main>
     </Layout>
   );

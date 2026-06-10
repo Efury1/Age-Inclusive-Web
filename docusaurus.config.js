@@ -61,12 +61,12 @@ const config = {
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
+        { to: '/contact', label: 'Contact', position: 'left' },
 
         {
           label: 'Explore',
           position: 'left',
           items: [
-            { to: '/resources', label: 'Resources' },
             { to: '/contribute', label: 'Contribute' },
             { to: '/pilot', label: 'Pilot' },
           ],
