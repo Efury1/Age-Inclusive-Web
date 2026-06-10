@@ -1,5 +1,4 @@
 
-````md
 # Contributing to Age-Inclusive-Web
 
 Thank you for contributing to Age-Inclusive-Web. This project focuses on building a web experience that is accessible, readable, and usable for people of all ages and digital skill levels.
