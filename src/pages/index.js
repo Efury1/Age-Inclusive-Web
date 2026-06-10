@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import styles from './index.module.css';
 import { GUIDELINES } from '../data/guidelines';
 
-// ✅ ADD THIS IMPORT
+
 import DevNoticeBanner from '../components/Banner';
 
 /* -----------------------------
