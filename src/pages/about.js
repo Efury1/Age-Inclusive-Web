@@ -1,9 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-export default function Hello() {
+export default function About() {
   return (
-    <Layout title="Age Inclusive Web" description="Socitm workshop research overview">
+    <Layout title="About" description="About the Age Inclusive Web Standard">
       <div
         style={{
           maxWidth: '900px',
@@ -13,62 +13,82 @@ export default function Hello() {
           fontSize: '18px',
         }}>
 
-        <h1>Age Inclusive Web Research</h1>
-
-        {/* Intro image */}
-        <img
-          src="/img/age-group.jpg"
-          alt="Age group overview"
-          style={{ width: '100%', borderRadius: '8px', marginBottom: '1.5rem' }}
-        />
+        <h1>About this project</h1>
 
         <p>
-          This project originated as a Socitm workshop, incorporating both collaborative research and independent investigation, with a geographic focus on Norfolk, UK. The research engaged approximately 40 respondents across the 55–64 and 65+ age groups, with a particular focus on women as a key participant group.
-        </p>
-
-        {/* Age 55+ context image */}
-        <img
-          src="/img/age-55-plus.jpg"
-          alt="Age 55 plus participants"
-          style={{ width: '100%', borderRadius: '8px', margin: '1.5rem 0' }}
-        />
-
-        <p>
-          Findings indicated that the most significant difficulties were experienced in accessing healthcare services and government services. Key barriers identified included the cost of digital devices, limited digital skills, privacy concerns, and low confidence in using online systems. Participants expressed a clear preference for support mechanisms such as one-to-one assistance, online tutorials, and small group sessions.
-        </p>
-
-        {/* Digital challenges image */}
-        <img
-          src="/img/digital-challenges.jpg"
-          alt="Digital challenges faced by users"
-          style={{ width: '100%', borderRadius: '8px', margin: '1.5rem 0' }}
-        />
-
-        <p>
-          The emphasis on women was intentional, reflecting both the demographic composition of older age groups and the fact that women, on average, live longer than men. This makes digital inclusion within this group particularly significant for long-term access to essential services, including healthcare, financial, and government systems.
+          The Age Inclusive Web Standard was built to give public sector teams a practical,
+          evidence-based tool for designing digital services that work for older adults
+          and stay accessible as people age.
         </p>
 
         <p>
-          The project also reviewed previous initiatives, many of which demonstrated strong outcomes through tailored, individualised support. However, a number of these programmes have since been discontinued due to reductions in funding.
+          It started as a <a href="https://www.socitm.net/">Socitm</a> workshop. It became
+          something we felt was worth sharing.
         </p>
 
-        {/* Digital services image */}
-        <img
-          src="/img/digital-services.jpg"
-          alt="Digital services access"
-          style={{ width: '100%', borderRadius: '8px', margin: '1.5rem 0' }}
-        />
+        <hr />
+
+        <h2>Who we are</h2>
 
         <p>
-          In response, this work seeks to propose a practical and implementable framework that can be adopted immediately. While recognising that it cannot directly influence organisational budgets or strategic decision-making, it aims to provide a structured approach for designers and developers to advocate for improved accessibility and inclusion within public services.
+          We are <strong>Team Elevate</strong> a group individuals working
+          across local government in England.
+        </p>
+
+        <ul>
+          <li><a href="https://www.linkedin.com/in/bethany-lloyd/">Bethany Lloyd</a> — <a href="https://www.linkedin.com/company/london-borough-of-barnet/">London Borough of Barnet</a></li>
+          <li><a href="https://www.linkedin.com/in/emma-toublic-728506122/">Emma Toublic</a> — <a href="https://www.linkedin.com/company/essex-county-council/">Essex County Council</a></li>
+          <li><a href="https://www.linkedin.com/in/eliza-fury-3004b3110/">Eliza Fury</a> — <a href="https://www.linkedin.com/company/norfolkcc/">Norfolk County Council</a></li>
+          <li>Holly Plumb — <a href="https://www.linkedin.com/company/norfolkcc/">Norfolk County Council</a></li>
+          <li>Hoda Younis — <a href="https://www.linkedin.com/company/london-borough-of-hounslow/">London Borough of Hounslow</a> </li>
+        </ul>
+
+        <p>
+          We came to this from different councils and different roles. What we shared was a
+          frustration with how often older users are treated as an edge case rather than a
+          core audience.
+        </p>
+
+        <hr />
+
+        <h2>Why we built this</h2>
+
+        <p>
+          Public sector digital services are increasingly the only route to essential support.
+          But older adults who need these services most for accessing healthcare,
+          housing, and financial help - are also the most likely to be left behind by how
+          those services are designed.
         </p>
 
         <p>
-          The approach acknowledges that no single solution will be perfect. However, drawing on the demonstrated success of standards such as WCAG, it is proposed that evidence-based documentation can serve as a mechanism to support continuous improvement in public service delivery.
+          The research is not new. The barriers are well documented. What has been harder to
+          find is a structured, immediately usable framework that practitioners can pick up
+          without needing a dedicated accessibility team or a large budget.
+        </p>
+
+        <p>That is what this standard attempts to be.</p>
+
+        <hr />
+
+        <h2>What it is not</h2>
+
+        <p>
+          This is not a replacement for{' '}
+          <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG</a>. It builds on it.
         </p>
 
         <p>
-          Ultimately, this work is grounded in the recognition that an ageing population is a shared societal reality. Its objective is to contribute to the development of services that are more accessible and usable in later life, while also benefiting current and future users as they age.
+          It is also not a finished product. It is a starting point. This was designed to be used,
+          tested, and improved by the teams working closest to these problems.
+        </p>
+
+        <hr />
+
+        <p>
+          <em>
+            This project was developed as part of a Socitm workshop. Views are our own and
+            do not represent our respective councils.
+          </em>
         </p>
 
       </div>
