@@ -370,3 +370,56 @@
 .guidelinePara:last-child {
   margin-bottom: 0;
 }
+
+/* Show nav links directly on mobile instead of collapsing to hamburger */
+@media (max-width: 996px) {
+  .navbar__toggle {
+    display: none; /* hide hamburger button */
+  }
+
+  .navbar__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Prevent Docusaurus hiding the items behind the toggle */
+  .navbar__item {
+    display: block !important;
+  }
+}
+
+/* ── Navbar height: grow with content, push page down ──────────────────────
+   Docusaurus uses --ifm-navbar-height to offset sticky-positioned navbar.
+   We override it to auto so the border and content clearance follow reality.
+──────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --ifm-navbar-height: auto;
+}
+
+.navbar {
+  height: auto;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #d0d0d0; /* sits flush under last row of items */
+}
+
+.navbar__inner {
+  flex-wrap: wrap;
+  height: auto !important;
+  padding-bottom: 0; /* let items define the height naturally */
+}
+
+.navbar__items {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+.navbar__toggle {
+  display: none !important;
+}
+
+.navbar__item {
+  display: flex !important;
+}

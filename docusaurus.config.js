@@ -53,6 +53,10 @@ const config = {
 
     navbar: {
       title: 'Age Inclusive Web',
+      logo: {
+        alt: 'Age Inclusive Web logo',
+        src: 'img/logo.png',
+      },
 
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
