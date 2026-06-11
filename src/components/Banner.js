@@ -6,7 +6,6 @@ export default function DevNoticeBanner() {
       <p style={styles.text}>
         <strong>Notice:</strong> This website is currently under active development. 
         Features and content are being continuously improved. 
-        The “Contact Us” page is not yet fully functional, but we are actively working to complete it.
       </p>
     </div>
   );

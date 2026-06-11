@@ -1,5 +1,5 @@
 export const GUIDELINES = [
-  {
+    {
     id: 'g1',
     image: {
       src: '/img/e.jpg',
@@ -10,43 +10,57 @@ export const GUIDELINES = [
     title: 'Avoid hiding actions inside abstract icons or hamburger menus',
     body: `Many older users prefer visible navigation and recognition over exploration-based interfaces. Hidden navigation increases cognitive load and reduces confidence.
 
-Desktop interfaces should avoid hamburger menus and instead display top-level navigation clearly. On mobile, if there are 4 or fewer links, show them directly. If there are more than 4, consider alternative structures such as in-page navigation or clearly supported expanded menus.
+  Desktop: Display top-level navigation clearly, typically across the top or down the left side. Don't carry mobile hamburger patterns to desktop; this roughly halves discoverability on larger screens.
 
-For the image above, we have "Explore ▼" as a dropdown in the desktop nav. This is fine because the entire navbar isn't collapsed behind a hamburger icon. The distinction is that the whole nav isn't hidden behind an icon, with zero information scent. It is visible with a disclosed submenu, so top-level options are always scannable. 
+  Mobile: If there are 4 or fewer links, show them directly. If more than 4, hiding is acceptable but support it with in-page links to important content.
 
+  Labels matter: Pair any menu icon with a text label (e.g. "Menu") so users know what to expect before clicking. A bare icon gives no information scent, users must expand to find out what's inside, which increases interaction cost and reduces confidence.
 
-References:
-- Nielsen Norman Group - Hamburger Menus: https://www.nngroup.com/articles/hamburger-menus/`,
+  For the image above, "Explore ▼" as a dropdown is fine because the whole navbar isn't collapsed behind an icon. Top-level options remain scannable; only the submenu is hidden.
+
+  References:
+
+  - Nielsen Norman Group - Hamburger Menus: https://www.nngroup.com/articles/hamburger-menus/`,
+  },
+{
+  id: 'g3',
+  category: 'Navigation and interaction',
+  code: 'AIWS-02 · Device flexibility',
+  title: 'Do not make mobile app use mandatory',
+  body: `Not all users are comfortable with or have access to smartphones. Around 3.4 million people aged 65 and over in the UK do not use a smartphone, and nearly one third of those aged 75 and over are not online at all (Age UK, 2024).
+
+  All critical services should be fully accessible via a web browser on desktop, without requiring a smartphone or mandatory app installation. Users should be able to complete key tasks online using standard web access.
+
+  Login should support multiple options such as email and password, one-time codes via email or SMS, security keys, or printed backup codes. Assisted or paper-based identity verification should be available where needed. Clear recovery options are essential, including email recovery, backup codes, or support-assisted processes. Services should avoid app-only authentication and ensure full usability for users without smartphones, especially older adults.
+
+  References:
+
+  - Age UK, Digital Exclusion (2024): https://www.ageuk.org.uk/plymouth/about-us/latest-news/articles/2024/age-uk-tackles-digital-exclusion/
+
+  - Pew Research Center (Mobile Fact Sheet): https://www.pewresearch.org/internet/fact-sheet/mobile/`,
   },
   {
-    id: 'g3',
+    id: 'g4',
     category: 'Navigation and interaction',
-    code: 'AIWS-02 · Device flexibility',
-    title: 'Do not make mobile app use mandatory',
-    body: `Not all users are comfortable with or have access to smartphones. Many older users prefer tablets or desktop devices.
+    code: 'AIWS-03 · Time and pacing',
+    title: 'Do not force time limits on older or cognitively diverse users',
+    wcagOverlap:
+      'Partial WCAG overlap: WCAG 2.2 (Success Criterion 2.2.1, Timing Adjustable)',
+    body: `Older adults may take longer to read, verify, and build confidence before submitting information. Research on technology use and cognitive load confirms that time pressure is a significant barrier, particularly for users with subjective cognitive decline (Chattopadhyay & Mubashshira, 2025).
 
-All critical services should be fully accessible via a web browser on desktop, without requiring a smartphone or mandatory app installation. Users should be able to complete key tasks online using standard web access.
+  Avoid session timeouts wherever possible. Where a timeout is required for security reasons, WCAG 2.2 (Success Criterion 2.2.1, Timing Adjustable) requires that users can turn off, adjust, or extend the time limit. The extension must be at least 10 times the default. Warn users clearly before expiry with a visible message such as "Your session will expire in 5 minutes" and a prominent "Extend session" button.
 
-Login should support multiple options such as email and password, one-time codes via email or SMS, security keys, or printed backup codes. Assisted or paper-based identity verification should be available where needed. Clear recovery options are essential, including email recovery, backup codes, or support-assisted processes. Services should avoid app-only authentication and ensure full usability for users without smartphones, especially older adults.
+  For longer or multi-step tasks, provide save-and-return-later functionality so users are not penalised for taking breaks. Avoid discarding progress silently when a session expires.
 
-References:
-- Pew Research Center (Mobile Fact Sheet): https://www.pewresearch.org/internet/fact-sheet/mobile/`,
-  },
-  {
-    id: 'g2',
-    category: 'Cognitive load and usability',
-    code: 'AIWS-03 · Time & pacing',
-    title: 'Avoid time pressure and allow users to work at their own pace',
-    image: {
-      src: '/img/sessionActive.jpg',
-      alt: 'Example of visible navigation with an Explore dropdown',
-    },
-    body: `Older adults may take longer to read, verify, and build confidence before submitting information. Systems should avoid forced time limits wherever possible.
+  Where possible, let users set their own pacing at the start of a task, for example a preference to disable time limits, before they encounter one mid-flow.
 
-Provide save-and-return-later functionality and allow users to extend sessions. Where applicable, allow adjustment of interaction speed or experience pacing.
+  References:
 
-References:
-- Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2) https://pmc.ncbi.nlm.nih.gov/articles/PMC1524856/`,
+  - WCAG 2.2, Success Criterion 2.2.1 Timing Adjustable: https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html
+
+  - Chattopadhyay & Mubashshira (2025), Navigating Digital Security and Usability for Older Adults: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12759956/
+
+  - Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2): https://pmc.ncbi.nlm.nih.gov/articles/PMC1524856/`,
   },
   {
     id: 'g5',
@@ -75,9 +89,12 @@ References:
       'Partial WCAG overlap: WCAG 2.2.2 (Pause, Stop, Hide) requires controls for moving content lasting more than 5 seconds, but does not address notification duration, form interruptions, or simultaneous cognitive demands.',
     body: `Auto-advancing carousels, autoplaying video, and time-limited notifications place simultaneous demands on attention and processing speed. Older adults are more likely to experience difficulty processing competing stimuli, and interruptions during form completion increase error rates significantly.
 
-Carousels and slideshows must not advance automatically, or must provide a clearly visible pause control. Video and audio must not autoplay. Notifications and toast messages must remain visible for at least 10 seconds and must be dismissible. Avoid triggering new content or dialogs while a user is actively completing a form or multi-step task.
+Carousels and slideshows must not advance automatically, or must provide a clearly visible pause control. Video and audio must not autoplay. Notifications and toast messages must remain visible for at least 10 seconds and must be dismissible. 
+
+Limit the triggering new content or agressive dialogs while a user is actively completing a form or multi-step task.
 
 References:
+
 - Nielsen Norman Group — Auto-Forwarding Carousels: https://www.nngroup.com/articles/auto-forwarding/
 
 - Czaja, S. J., & Lee, C. C. (2007). The impact of aging on access to technology: https://www.researchgate.net/publication/220606716_The_impact_of_aging_on_access_to_technology
@@ -98,6 +115,7 @@ References:
 Provide persistent “Need help” links in forms and checkout flows. These must include immediate escalation to a human agent. Where AI chat is used as the initial support layer, it must include a clearly labelled, one-step escalation to a human representative at all times.
 
 References:
+
 - Age UK - Digital Inclusion Evidence Review (2016):`,
   },
   {
@@ -114,6 +132,7 @@ References:
 Provide inline hint text, tooltips, or expandable guidance at decision points within forms and multi-step flows. Where a term or field may be unfamiliar, explain it in context. Ensure that any guidance provided during a task can be accessed again without losing progress.
 
 References:
+
 - Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`,
   },
   {
@@ -138,6 +157,7 @@ Do not use capitalised or standalone labels such as “ERROR” or “FAILED” 
 Example: Instead of “Submission failed”, use “We couldn’t send your form right now. Your information is still saved. Please check your internet connection and try again.”
 
 References:
+
 - Fisk, A. D., Rogers, W. A., Charness, N., Czaja, S. J., & Sharit, J. (2009). Designing for Older Adults. CRC Press: https://www.taylorfrancis.com/books/mono/10.1201/9781420080681/designing-older-adults-arthur-fisk-wendy-rogers-neil-charness-joseph-sharit-sara-czaja-sara-czaja
 
 - Nielsen Norman Group — Writing Helpful Error Messages: https://www.nngroup.com/articles/error-message-guidelines/`,
@@ -159,6 +179,7 @@ Use neutral, supportive language that describes what the system is doing without
 Avoid excessive use of red, warning symbols, or urgent phrasing in non-error situations. These should only be used when there is a genuine safety, security, or data risk that requires immediate attention.
 
 References:
+
 - Czaja, S. J., et al. (2006). Factors predicting the use of technology. Psychology and Aging, 21(2).`,
   },
   {
@@ -175,6 +196,7 @@ References:
 Use short sentences and active voice in all transactional content. Spell out acronyms on first use. Avoid instructions that rely on assumed knowledge of interface conventions ("tap the hamburger menu", "swipe to dismiss"). Target a reading age of 9–11 years for public-facing services, in line with GOV.UK content standards.
 
 References:
+
 - Key Challenges and Barriers to Digital Literacy for Older Adults: https://pmc.ncbi.nlm.nih.gov/articles/PMC12991319/`,
   },
   {
@@ -192,6 +214,7 @@ References:
 Confirmation numbers, appointment details, and transaction records should be printable or downloadable as a PDF without requiring an account or further navigation. For critical services, a telephone or in-person alternative must exist and be clearly signposted alongside the digital journey.
 
 References:
+
 - Age UK Offline and Overlooked report `,
   },
   {
@@ -201,8 +224,10 @@ References:
     title:
       'Do not use PDF as the primary format for transactional or time-sensitive information',
     body: `PDFs are a common accessibility barrier, particularly for older adults and users with lower digital confidence. Unlike standard web content, PDFs often require additional software or plug-ins to open, download, or navigate, which can create unnecessary friction for users who are already struggling with basic digital tasks. Research in digital inclusion has shown that additional steps in a task flow significantly increase abandonment rates, especially among older users and those with limited digital literacy.
-    
-References: Why GOV.uk content should be published in HTML not PDF: https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
+
+References: 
+
+- Why GOV.uk content should be published in HTML not PDF: https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
 `,
   },
   {
@@ -211,11 +236,12 @@ References: Why GOV.uk content should be published in HTML not PDF: https://gds.
     code: 'AIWS-13 · Dark patterns',
     title:
       'Do not use manipulative interface patterns that exploit lower digital literacy',
-    body: `Dark patterns are interface designs that deliberately mislead or pressure users into actions they would not otherwise choose. Older adults with lower digital confidence are disproportionately harmed — they are less likely to recognise manipulative designs and more likely to comply out of uncertainty or anxiety.
+    body: `Dark patterns are interface designs that deliberately mislead or pressure users into actions they would not otherwise choose. Older adults with lower digital confidence are disproportionately harmed - they are less likely to recognise manipulative designs and more likely to comply out of uncertainty or anxiety.
 
 The following patterns must not be used: pre-ticked boxes, hidden fees, confirm-shaming, false urgency, or asymmetric cancellation flows.
 
 References:
+
 - Nielsen Norman Group - Deceptive Patterns: https://www.nngroup.com/articles/deceptive-patterns/
 
 - Luguri, J. & Strahilevitz, L. J. (2021). Shining a Light on Dark Patterns.`,

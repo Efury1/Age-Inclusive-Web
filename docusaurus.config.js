@@ -63,7 +63,7 @@ const config = {
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/about', label: 'About', position: 'left' },
-        { to: '/contact', label: 'Contact', position: 'left' },
+        // { to: '/contact', label: 'Contact', position: 'left' },
 
         {
           label: 'Explore',
